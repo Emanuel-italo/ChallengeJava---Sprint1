@@ -7,3 +7,9 @@ VALUES (2, 'João Pereira', '987.654.321-00', 'joao@email.com', '(11) 91234-5678
  
 INSERT INTO tb_tutor (id, nome, cpf, email, telefone, data_nascimento, aceita_comunicacao, criado_em, atualizado_em)
 VALUES (3, 'Ana Costa', '111.222.333-44', 'ana@email.com', '(21) 99999-0000', '1995-11-30', FALSE, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+
+
+-- ---------- CLINICAS ----------
+INSERT INTO tb_clinica (id, razao_social, cnpj, endereco, telefone, ativa, criado_em, atualizado_em)
+VALUES (1, 'Clínica VetAmigo Ltda', '12.345.678/0001-90', 'Av. Paulista, 1000 - São Paulo/SP', '(11) 3000-1000', TRUE, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
