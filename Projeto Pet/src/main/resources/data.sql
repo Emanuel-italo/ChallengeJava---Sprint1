@@ -13,3 +13,6 @@ VALUES (3, 'Ana Costa', '111.222.333-44', 'ana@email.com', '(21) 99999-0000', '1
 -- ---------- CLINICAS ----------
 INSERT INTO tb_clinica (id, razao_social, cnpj, endereco, telefone, ativa, criado_em, atualizado_em)
 VALUES (1, 'Clínica VetAmigo Ltda', '12.345.678/0001-90', 'Av. Paulista, 1000 - São Paulo/SP', '(11) 3000-1000', TRUE, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+INSERT INTO tb_clinica (id, razao_social, cnpj, endereco, telefone, ativa, criado_em, atualizado_em)
+VALUES (2, 'Pet Saúde Premium SA', '98.765.432/0001-10', 'Rua das Flores, 500 - Rio de Janeiro/RJ', '(21) 4000-2000', TRUE, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
