@@ -53,3 +53,19 @@ public class ClinicaController {
         }
         return ResponseEntity.ok(clinicaService.listarTodas(pageable));
     }
+
+    @PutMapping("/{id}")
+    @Operation(summary = "Atualizar clínica")
+    public ResponseEntity<ClinicaResponse> atualizar(
+            @PathVariable Long id, @Valid @RequestBody ClinicaRequest request) {
+        return ResponseEntity.ok(clinicaService.atualizar(id, request));
+    }
+ 
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Excluir clínica")
+    @ApiResponse(responseCode = "204", description = "Clínica excluída")
+    public ResponseEntity<Void> excluir(@PathVariable Long id) {
+        clinicaService.excluir(id);
+        return ResponseEntity.noContent().build();
+    }
+}
