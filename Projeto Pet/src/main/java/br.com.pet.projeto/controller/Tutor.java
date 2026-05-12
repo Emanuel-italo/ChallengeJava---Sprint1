@@ -25,7 +25,7 @@ public class TutorController {
  
     private final TutorService tutorService;
  
-    // ---- POST /api/v1/tutores ----
+
  
     @PostMapping
     @Operation(summary = "Cadastrar tutor",
@@ -35,3 +35,15 @@ public class TutorController {
             @ApiResponse(responseCode = "400", description = "Dados inválidos"),
             @ApiResponse(responseCode = "409", description = "E-mail ou CPF já cadastrado")
     })
+
+        public ResponseEntity<TutorResponse> criar(@Valid @RequestBody TutorRequest request) {
+        TutorResponse response = tutorService.criar(request);
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(response.getId())
+                .toUri();
+        return ResponseEntity.created(location).body(response);
+    }
+ 
+    
