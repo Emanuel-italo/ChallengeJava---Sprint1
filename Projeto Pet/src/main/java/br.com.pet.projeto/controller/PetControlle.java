@@ -75,3 +75,32 @@ public class PetController {
             @ParameterObject Pageable pageable) {
         return ResponseEntity.ok(petService.listarPorTutor(tutorId, pageable));
     }
+
+    @PutMapping("/{id}")
+    @Operation(summary = "Atualizar pet")
+    public ResponseEntity<PetResponse> atualizar(
+            @PathVariable Long id,
+            @Valid @RequestBody PetRequest request) {
+        return ResponseEntity.ok(petService.atualizar(id, request));
+    }
+ 
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Excluir pet")
+    @ApiResponse(responseCode = "204", description = "Pet excluído")
+    public ResponseEntity<Void> excluir(@PathVariable Long id) {
+        petService.excluir(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/{id}/score-risco")
+    @Operation(summary = "Recalcular score de risco do pet",
+               description = "Processa todos os fatores clínicos e gera um score de risco de 0 a 100. " +
+                             "Scores acima de 70 são considerados zona de atenção.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Score recalculado com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Pet não encontrado")
+    })
+    public ResponseEntity<PetResponse> recalcularScore(@PathVariable Long id) {
+        return ResponseEntity.ok(petService.recalcularScoreRiscoPublico(id));
+    }
+}
