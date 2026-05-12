@@ -97,3 +97,5 @@ public class ConsultaController {
             @ParameterObject Pageable pageable) {
         return ResponseEntity.ok(consultaService.listarPorClinica(clinicaId, pageable));
     }
+
+    
