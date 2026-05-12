@@ -40,3 +40,24 @@ public class ConsultaController {
                 .path("/{id}").buildAndExpand(response.getId()).toUri();
         return ResponseEntity.created(location).body(response);
     }
+
+
+    @GetMapping("/{id}")
+    @Operation(summary = "Buscar consulta por ID")
+    public ResponseEntity<ConsultaResponse> buscarPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(consultaService.buscarPorId(id));
+    }
+ 
+    @GetMapping
+    @Operation(summary = "Listar consultas",
+               description = "Lista consultas com filtros opcionais por tipo, status, pet, clínica e período.")
+    public ResponseEntity<Page<ConsultaResponse>> listar(
+            @RequestParam(required = false) Consulta.TipoConsulta tipo,
+            @RequestParam(required = false) Consulta.StatusConsulta status,
+            @RequestParam(required = false) Long petId,
+            @RequestParam(required = false) Long clinicaId,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime inicio,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fim,
+            @ParameterObject Pageable pageable) {
+ 
+        Page<ConsultaResponse> page;
