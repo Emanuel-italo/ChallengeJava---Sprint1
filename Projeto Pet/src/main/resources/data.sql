@@ -18,6 +18,9 @@ INSERT INTO tb_clinica (id, razao_social, cnpj, endereco, telefone, ativa, criad
 VALUES (2, 'Pet Saúde Premium SA', '98.765.432/0001-10', 'Rua das Flores, 500 - Rio de Janeiro/RJ', '(21) 4000-2000', TRUE, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 
--- ---------- VETERINARIOS ----------
+------ veterinarios -----
 INSERT INTO tb_veterinario (id, nome, crmv, especialidade, email, clinica_id, criado_em, atualizado_em)
 VALUES (1, 'Dr. Carlos Mendes', 'SP-12345', 'Clínica Geral', 'carlos@vetamigo.com', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+ 
+INSERT INTO tb_veterinario (id, nome, crmv, especialidade, email, clinica_id, criado_em, atualizado_em)
+VALUES (2, 'Dra. Patrícia Oliveira', 'SP-23456', 'Cardiologia', 'patricia@vetamigo.com', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
