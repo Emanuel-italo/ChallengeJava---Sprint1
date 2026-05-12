@@ -57,3 +57,18 @@ public class AlertaSaudeController {
             @ParameterObject Pageable pageable) {
         return ResponseEntity.ok(alertaService.listarPorStatus(status, pageable));
     }
+
+    @PatchMapping("/{id}/resolver")
+    @Operation(summary = "Marcar alerta como resolvido")
+    @ApiResponse(responseCode = "200", description = "Alerta resolvido")
+    public ResponseEntity<AlertaSaudeResponse> resolver(@PathVariable Long id) {
+        return ResponseEntity.ok(alertaService.resolver(id));
+    }
+ 
+    @PatchMapping("/pet/{petId}/marcar-lidos")
+    @Operation(summary = "Marcar todos alertas do pet como lidos pelo tutor")
+    public ResponseEntity<Void> marcarTodosComoLidos(@PathVariable Long petId) {
+        alertaService.marcarTodosComoLidos(petId);
+        return ResponseEntity.noContent().build();
+    }
+}
