@@ -12,3 +12,22 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
  
 import java.util.List;
+
+
+@RestController
+@RequestMapping("/api/v1/alertas")
+@RequiredArgsConstructor
+@Tag(name = "Alertas de Saúde",
+        description = "Sistema de alertas preditivos e recomendações para tutores e clínicas")
+public class AlertaSaudeController {
+ 
+    private final AlertaSaudeService alertaService;
+ 
+    @GetMapping("/pet/{petId}")
+    @Operation(summary = "Listar alertas do pet",
+               description = "Retorna todos os alertas de saúde de um pet específico, paginados.")
+    public ResponseEntity<Page<AlertaSaudeResponse>> listarPorPet(
+            @PathVariable Long petId,
+            @ParameterObject Pageable pageable) {
+        return ResponseEntity.ok(alertaService.listarPorPet(petId, pageable));
+    }
