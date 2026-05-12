@@ -79,3 +79,21 @@ public class ConsultaController {
         return ResponseEntity.ok(page);
     }
  
+
+ @GetMapping("/pet/{petId}/historico")
+    @Operation(summary = "Histórico longitudinal do pet",
+               description = "Retorna o histórico completo de consultas do pet em ordem cronológica inversa. " +
+                             "Implementa o conceito de 'histórico longitudinal' do Challenge.")
+    public ResponseEntity<Page<ConsultaResponse>> historicoPet(
+            @PathVariable Long petId,
+            @ParameterObject Pageable pageable) {
+        return ResponseEntity.ok(consultaService.historicoPet(petId, pageable));
+    }
+ 
+    @GetMapping("/clinica/{clinicaId}")
+    @Operation(summary = "Listar consultas de uma clínica")
+    public ResponseEntity<Page<ConsultaResponse>> listarPorClinica(
+            @PathVariable Long clinicaId,
+            @ParameterObject Pageable pageable) {
+        return ResponseEntity.ok(consultaService.listarPorClinica(clinicaId, pageable));
+    }
