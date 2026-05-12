@@ -70,3 +70,24 @@ public class TutorController {
                 @ParameterObject Pageable pageable) {
     
             Page<TutorResponse> page;
+
+    if (nome != null && !nome.isBlank()) {
+            page = tutorService.buscarPorTermo(nome, pageable);
+        } else if (status != null) {
+            page = tutorService.buscarPorStatus(status, pageable);
+        } else {
+            page = tutorService.listarTodos(pageable);
+        }
+ 
+        return ResponseEntity.ok(page);
+    }
+ 
+    // ---- GET /api/v1/tutores/busca?termo= ----
+ 
+    @GetMapping("/busca")
+    @Operation(summary = "Busca full-text por nome ou e-mail do tutor")
+    public ResponseEntity<Page<TutorResponse>> buscar(
+            @RequestParam String termo,
+            @ParameterObject Pageable pageable) {
+        return ResponseEntity.ok(tutorService.buscarPorTermo(termo, pageable));
+    }
