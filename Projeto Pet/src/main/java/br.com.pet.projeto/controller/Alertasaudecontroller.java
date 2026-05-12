@@ -31,3 +31,11 @@ public class AlertaSaudeController {
             @ParameterObject Pageable pageable) {
         return ResponseEntity.ok(alertaService.listarPorPet(petId, pageable));
     }
+
+  @GetMapping("/tutor/{tutorId}/pendentes")
+    @Operation(summary = "Alertas pendentes do tutor",
+               description = "Retorna todos os alertas pendentes e não lidos do tutor, " +
+                             "ordenados por prioridade. Ideal para notificação push/WhatsApp.")
+    public ResponseEntity<List<AlertaSaudeResponse>> alertasPendentes(@PathVariable Long tutorId) {
+        return ResponseEntity.ok(alertaService.alertasPendentesByTutor(tutorId));
+    }
