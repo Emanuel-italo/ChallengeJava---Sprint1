@@ -32,3 +32,24 @@ public class ClinicaController {
                 .path("/{id}").buildAndExpand(response.getId()).toUri();
         return ResponseEntity.created(location).body(response);
     }
+
+@GetMapping("/{id}")
+    @Operation(summary = "Buscar clínica por ID")
+    public ResponseEntity<ClinicaResponse> buscarPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(clinicaService.buscarPorId(id));
+    }
+ 
+    @GetMapping
+    @Operation(summary = "Listar clínicas com filtros opcionais")
+    public ResponseEntity<Page<ClinicaResponse>> listar(
+            @RequestParam(required = false) Clinica.StatusClinica status,
+            @RequestParam(required = false) String termo,
+            @ParameterObject Pageable pageable) {
+ 
+        if (termo != null && !termo.isBlank()) {
+            return ResponseEntity.ok(clinicaService.buscarPorTermo(termo, pageable));
+        } else if (status != null) {
+            return ResponseEntity.ok(clinicaService.listarPorStatus(status, pageable));
+        }
+        return ResponseEntity.ok(clinicaService.listarTodas(pageable));
+    }
