@@ -67,3 +67,21 @@ VALUES (1, 'Plano vacinacao — Rex', 'Plano gerado automaticamente a partir da 
  
 INSERT INTO tb_evento_cuidado (id, descricao, data_prevista, concluido, notificacao_enviada, plano_cuidado_id, criado_em, atualizado_em)
 VALUES (1, 'Reforço de vacinação anual', DATEADD('YEAR', 1, CURRENT_TIMESTAMP), FALSE, FALSE, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+
+-- ---------- SCORES DE SAUDE (histórico longitudinal de Mia) ----------
+INSERT INTO tb_score_saude (id, pontuacao, nivel, justificativa, calculado_em, pet_id, criado_em, atualizado_em)
+VALUES (1, 30, 'MODERADO', 'Fatores: doença crônica', DATEADD('DAY', -60, CURRENT_TIMESTAMP), 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+ 
+INSERT INTO tb_score_saude (id, pontuacao, nivel, justificativa, calculado_em, pet_id, criado_em, atualizado_em)
+VALUES (2, 45, 'ALTO', 'Fatores: doença crônica, 1 evento(s) vencido(s) sem adesão', DATEADD('DAY', -1, CURRENT_TIMESTAMP), 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+ 
+-- Ajusta os sequenciadores do H2 para que novos INSERTs não colidam
+ALTER TABLE tb_tutor          ALTER COLUMN id RESTART WITH 100;
+ALTER TABLE tb_clinica        ALTER COLUMN id RESTART WITH 100;
+ALTER TABLE tb_veterinario    ALTER COLUMN id RESTART WITH 100;
+ALTER TABLE tb_pet            ALTER COLUMN id RESTART WITH 100;
+ALTER TABLE tb_consulta       ALTER COLUMN id RESTART WITH 100;
+ALTER TABLE tb_plano_cuidado  ALTER COLUMN id RESTART WITH 100;
+ALTER TABLE tb_evento_cuidado ALTER COLUMN id RESTART WITH 100;
+ALTER TABLE tb_score_saude    ALTER COLUMN id RESTART WITH 100;
