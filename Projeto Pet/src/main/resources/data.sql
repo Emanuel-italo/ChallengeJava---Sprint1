@@ -44,7 +44,17 @@ INSERT INTO tb_pet (id, nome, especie, raca, data_nascimento, peso_kg, possui_do
 VALUES (4, 'Luna', 'GATO', 'Persa', '2022-09-01', 3.80, FALSE, 'BAIXO', 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
  
 
- -- ---------- CONSULTAS ----------
+-- ---------- CONSULTAS ----------
 INSERT INTO tb_consulta (id, data_hora, tipo, status, motivo, diagnostico, prescricao, data_retorno_previsto, pet_id, veterinario_id, criado_em, atualizado_em)
-VALUES (1, DATEADD('DAY', -30, CURRENT_TIMESTAMP), 'VACINACAO', 'REALIZADA','Vacinação anual V10', 'Pet saudável - aplicação OK', 'Reforço em 12 meses',
+VALUES (1, DATEADD('DAY', -30, CURRENT_TIMESTAMP), 'VACINACAO', 'REALIZADA',
+        'Vacinação anual V10', 'Pet saudável - aplicação OK', 'Reforço em 12 meses',
         DATEADD('YEAR', 1, CURRENT_TIMESTAMP), 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+ 
+INSERT INTO tb_consulta (id, data_hora, tipo, status, motivo, diagnostico, prescricao, data_retorno_previsto, pet_id, veterinario_id, criado_em, atualizado_em)
+VALUES (2, DATEADD('DAY', -60, CURRENT_TIMESTAMP), 'CONSULTA_ROTINA', 'REALIZADA',
+        'Check-up cardiológico', 'Sopro cardíaco grau 2', 'Enalapril 5mg 1x ao dia',
+        DATEADD('DAY', 30, CURRENT_TIMESTAMP), 2, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+ 
+INSERT INTO tb_consulta (id, data_hora, tipo, status, motivo, diagnostico, prescricao, data_retorno_previsto, pet_id, veterinario_id, criado_em, atualizado_em)
+VALUES (3, DATEADD('DAY', 15, CURRENT_TIMESTAMP), 'RETORNO', 'AGENDADA',
+        'Reavaliação cardiológica', NULL, NULL, NULL, 2, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
