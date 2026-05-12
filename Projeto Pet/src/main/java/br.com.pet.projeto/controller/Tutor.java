@@ -60,3 +60,13 @@ public class TutorController {
  
     // ---- GET /api/v1/tutores ----
     
+    @GetMapping
+        @Operation(summary = "Listar tutores",
+                description = "Lista todos os tutores com suporte a paginação e ordenação.")
+        @ApiResponse(responseCode = "200", description = "Lista retornada com sucesso")
+        public ResponseEntity<Page<TutorResponse>> listar(
+                @RequestParam(required = false) String nome,
+                @RequestParam(required = false) Tutor.StatusTutor status,
+                @ParameterObject Pageable pageable) {
+    
+            Page<TutorResponse> page;
