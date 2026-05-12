@@ -49,3 +49,11 @@ public class AlertaSaudeController {
             @ParameterObject Pageable pageable) {
         return ResponseEntity.ok(alertaService.alertasByClinica(clinicaId, pageable));
     }
+
+    @GetMapping
+    @Operation(summary = "Listar alertas por status")
+    public ResponseEntity<Page<AlertaSaudeResponse>> listarPorStatus(
+            @RequestParam(defaultValue = "PENDENTE") AlertaSaude.StatusAlerta status,
+            @ParameterObject Pageable pageable) {
+        return ResponseEntity.ok(alertaService.listarPorStatus(status, pageable));
+    }
