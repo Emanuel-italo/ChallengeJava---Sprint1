@@ -46,4 +46,17 @@ public class TutorController {
         return ResponseEntity.created(location).body(response);
     }
  
+     // ---- GET /api/v1/tutores/{id} ----
+ 
+    @GetMapping("/{id}")
+    @Operation(summary = "Buscar tutor por ID")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Tutor encontrado"),
+            @ApiResponse(responseCode = "404", description = "Tutor não encontrado")
+    })
+    public ResponseEntity<TutorResponse> buscarPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(tutorService.buscarPorId(id));
+    }
+ 
+    // ---- GET /api/v1/tutores ----
     
