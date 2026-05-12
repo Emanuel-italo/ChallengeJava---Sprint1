@@ -43,3 +43,8 @@ VALUES (3, 'Thor', 'CACHORRO', 'Labrador', '2015-03-22', 32.00, TRUE, 'MODERADO'
 INSERT INTO tb_pet (id, nome, especie, raca, data_nascimento, peso_kg, possui_doenca_cronica, nivel_risco_atual, tutor_id, criado_em, atualizado_em)
 VALUES (4, 'Luna', 'GATO', 'Persa', '2022-09-01', 3.80, FALSE, 'BAIXO', 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
  
+
+ -- ---------- CONSULTAS ----------
+INSERT INTO tb_consulta (id, data_hora, tipo, status, motivo, diagnostico, prescricao, data_retorno_previsto, pet_id, veterinario_id, criado_em, atualizado_em)
+VALUES (1, DATEADD('DAY', -30, CURRENT_TIMESTAMP), 'VACINACAO', 'REALIZADA','Vacinação anual V10', 'Pet saudável - aplicação OK', 'Reforço em 12 meses',
+        DATEADD('YEAR', 1, CURRENT_TIMESTAMP), 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
