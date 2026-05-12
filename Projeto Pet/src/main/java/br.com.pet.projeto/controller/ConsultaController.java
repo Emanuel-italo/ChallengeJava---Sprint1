@@ -61,3 +61,21 @@ public class ConsultaController {
             @ParameterObject Pageable pageable) {
  
         Page<ConsultaResponse> page;
+
+           if (petId != null) {
+            page = consultaService.historicoPet(petId, pageable);
+        } else if (inicio != null && fim != null) {
+            page = consultaService.listarPorPeriodo(inicio, fim, clinicaId, pageable);
+        } else if (clinicaId != null) {
+            page = consultaService.listarPorClinica(clinicaId, pageable);
+        } else if (tipo != null) {
+            page = consultaService.listarPorTipo(tipo, pageable);
+        } else if (status != null) {
+            page = consultaService.listarPorStatus(status, pageable);
+        } else {
+            page = consultaService.listarTodas(pageable);
+        }
+ 
+        return ResponseEntity.ok(page);
+    }
+ 
