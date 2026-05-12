@@ -39,3 +39,13 @@ public class AlertaSaudeController {
     public ResponseEntity<List<AlertaSaudeResponse>> alertasPendentes(@PathVariable Long tutorId) {
         return ResponseEntity.ok(alertaService.alertasPendentesByTutor(tutorId));
     }
+
+    @GetMapping("/clinica/{clinicaId}")
+    @Operation(summary = "Dashboard de alertas da clínica",
+               description = "Retorna alertas pendentes dos pets que são clientes da clínica. " +
+                             "Permite à clínica identificar pacientes em risco e acionar proativamente.")
+    public ResponseEntity<Page<AlertaSaudeResponse>> alertasByClinica(
+            @PathVariable Long clinicaId,
+            @ParameterObject Pageable pageable) {
+        return ResponseEntity.ok(alertaService.alertasByClinica(clinicaId, pageable));
+    }
