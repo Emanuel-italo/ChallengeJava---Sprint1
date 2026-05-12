@@ -114,4 +114,12 @@ public class ConsultaController {
     public ResponseEntity<ConsultaResponse> confirmarRetorno(@PathVariable Long id) {
         return ResponseEntity.ok(consultaService.confirmarRetorno(id));
     }
- 
+    
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Excluir consulta")
+    @ApiResponse(responseCode = "204", description = "Consulta excluída")
+    public ResponseEntity<Void> excluir(@PathVariable Long id) {
+        consultaService.excluir(id);
+        return ResponseEntity.noContent().build();
+    }
+}
