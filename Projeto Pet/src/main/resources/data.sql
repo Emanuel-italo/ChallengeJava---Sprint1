@@ -39,3 +39,7 @@ VALUES (2, 'Mia', 'GATO', 'Siamês', '2018-06-15', 4.20, TRUE, 'ALTO', 1, CURREN
  
 INSERT INTO tb_pet (id, nome, especie, raca, data_nascimento, peso_kg, possui_doenca_cronica, nivel_risco_atual, tutor_id, criado_em, atualizado_em)
 VALUES (3, 'Thor', 'CACHORRO', 'Labrador', '2015-03-22', 32.00, TRUE, 'MODERADO', 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+INSERT INTO tb_pet (id, nome, especie, raca, data_nascimento, peso_kg, possui_doenca_cronica, nivel_risco_atual, tutor_id, criado_em, atualizado_em)
+VALUES (4, 'Luna', 'GATO', 'Persa', '2022-09-01', 3.80, FALSE, 'BAIXO', 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+ 
