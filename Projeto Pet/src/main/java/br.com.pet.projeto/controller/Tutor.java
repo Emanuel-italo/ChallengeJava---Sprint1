@@ -108,3 +108,17 @@ public class TutorController {
         return ResponseEntity.ok(tutorService.atualizar(id, request));
     }
  
+
+ // ---- DELETE /api/v1/tutores/{id} ----
+ 
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Excluir tutor")
+    @ApiResponses({
+            @ApiResponse(responseCode = "204", description = "Tutor excluído"),
+            @ApiResponse(responseCode = "404", description = "Tutor não encontrado")
+    })
+    public ResponseEntity<Void> excluir(@PathVariable Long id) {
+        tutorService.excluir(id);
+        return ResponseEntity.noContent().build();
+    }
+}
