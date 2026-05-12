@@ -106,5 +106,12 @@ public class ConsultaController {
         return ResponseEntity.ok(consultaService.atualizar(id, request));
     }
 
-    
+    @PatchMapping("/{id}/retorno-realizado")
+    @Operation(summary = "Confirmar que o retorno foi realizado",
+               description = "Marca o retorno recomendado como realizado, ajudando a clínica a " +
+                             "controlar a adesão ao tratamento e reduzir abandono.")
+    @ApiResponse(responseCode = "200", description = "Retorno confirmado")
+    public ResponseEntity<ConsultaResponse> confirmarRetorno(@PathVariable Long id) {
+        return ResponseEntity.ok(consultaService.confirmarRetorno(id));
+    }
  
