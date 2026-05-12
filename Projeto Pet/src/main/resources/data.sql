@@ -58,3 +58,12 @@ VALUES (2, DATEADD('DAY', -60, CURRENT_TIMESTAMP), 'CONSULTA_ROTINA', 'REALIZADA
 INSERT INTO tb_consulta (id, data_hora, tipo, status, motivo, diagnostico, prescricao, data_retorno_previsto, pet_id, veterinario_id, criado_em, atualizado_em)
 VALUES (3, DATEADD('DAY', 15, CURRENT_TIMESTAMP), 'RETORNO', 'AGENDADA',
         'Reavaliação cardiológica', NULL, NULL, NULL, 2, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+
+
+-- ---------- PLANO DE CUIDADO (gerado a partir da consulta 1) ----------
+INSERT INTO tb_plano_cuidado (id, titulo, descricao, data_inicio, data_fim_prevista, ativo, consulta_origem_id, criado_em, atualizado_em)
+VALUES (1, 'Plano vacinacao — Rex', 'Plano gerado automaticamente a partir da consulta #1',
+        DATEADD('DAY', -30, CURRENT_DATE), DATEADD('YEAR', 1, CURRENT_DATE), TRUE, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+ 
+INSERT INTO tb_evento_cuidado (id, descricao, data_prevista, concluido, notificacao_enviada, plano_cuidado_id, criado_em, atualizado_em)
+VALUES (1, 'Reforço de vacinação anual', DATEADD('YEAR', 1, CURRENT_TIMESTAMP), FALSE, FALSE, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
