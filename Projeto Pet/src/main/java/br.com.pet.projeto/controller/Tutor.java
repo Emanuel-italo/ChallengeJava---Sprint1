@@ -91,3 +91,20 @@ public class TutorController {
             @ParameterObject Pageable pageable) {
         return ResponseEntity.ok(tutorService.buscarPorTermo(termo, pageable));
     }
+
+       // ---- PUT /api/v1/tutores/{id} ----
+ 
+    @PutMapping("/{id}")
+    @Operation(summary = "Atualizar tutor")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Tutor atualizado"),
+            @ApiResponse(responseCode = "400", description = "Dados inválidos"),
+            @ApiResponse(responseCode = "404", description = "Tutor não encontrado"),
+            @ApiResponse(responseCode = "409", description = "E-mail já cadastrado")
+    })
+    public ResponseEntity<TutorResponse> atualizar(
+            @PathVariable Long id,
+            @Valid @RequestBody TutorRequest request) {
+        return ResponseEntity.ok(tutorService.atualizar(id, request));
+    }
+ 
