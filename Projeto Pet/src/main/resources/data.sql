@@ -27,3 +27,8 @@ VALUES (2, 'Dra. Patrícia Oliveira', 'SP-23456', 'Cardiologia', 'patricia@vetam
 
 INSERT INTO tb_veterinario (id, nome, crmv, especialidade, email, clinica_id, criado_em, atualizado_em)
 VALUES (3, 'Dr. Rafael Santos', 'RJ-34567', 'Ortopedia', 'rafael@petsaude.com', 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+ 
+-- ---------- PETS ----------
+INSERT INTO tb_pet (id, nome, especie, raca, data_nascimento, peso_kg, possui_doenca_cronica, nivel_risco_atual, tutor_id, criado_em, atualizado_em)
+VALUES (1, 'Rex', 'CACHORRO', 'Golden Retriever', '2020-01-10', 28.50, FALSE, 'BAIXO', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
