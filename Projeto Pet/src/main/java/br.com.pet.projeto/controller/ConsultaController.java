@@ -98,4 +98,11 @@ public class ConsultaController {
         return ResponseEntity.ok(consultaService.listarPorClinica(clinicaId, pageable));
     }
 
-    
+     @PutMapping("/{id}")
+    @Operation(summary = "Atualizar dados da consulta")
+    public ResponseEntity<ConsultaResponse> atualizar(
+            @PathVariable Long id,
+            @Valid @RequestBody ConsultaRequest request) {
+        return ResponseEntity.ok(consultaService.atualizar(id, request));
+    }
+ 
