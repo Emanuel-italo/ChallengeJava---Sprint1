@@ -53,4 +53,25 @@ public class PetController {
             @RequestParam(required = false) Pet.StatusSaude statusSaude,
             @RequestParam(required = false) Long tutorId,
             @RequestParam(required = false) String termo,
+            @ParameterObject Pageable pageable) { Page<PetResponse> page;
+ 
+        if (termo != null && !termo.isBlank()) {
+            page = petService.buscarPorTermo(termo, pageable);
+        } else if (tutorId != null) {
+            page = petService.listarPorTutor(tutorId, pageable);
+        } else if (especie != null || statusSaude != null) {
+            page = petService.filtrar(especie, statusSaude, pageable);
+        } else {
+            page = petService.listarTodos(pageable);
+        }
+ 
+        return ResponseEntity.ok(page);
+    }
+ 
+    @GetMapping("/tutor/{tutorId}")
+    @Operation(summary = "Listar pets de um tutor específico")
+    public ResponseEntity<Page<PetResponse>> listarPorTutor(
+            @PathVariable Long tutorId,
             @ParameterObject Pageable pageable) {
+        return ResponseEntity.ok(petService.listarPorTutor(tutorId, pageable));
+    }
