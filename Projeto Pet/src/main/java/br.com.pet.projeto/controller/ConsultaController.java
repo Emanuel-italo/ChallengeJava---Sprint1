@@ -105,4 +105,6 @@ public class ConsultaController {
             @Valid @RequestBody ConsultaRequest request) {
         return ResponseEntity.ok(consultaService.atualizar(id, request));
     }
+
+    
  
