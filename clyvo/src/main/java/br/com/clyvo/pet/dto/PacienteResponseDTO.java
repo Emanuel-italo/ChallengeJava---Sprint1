@@ -16,7 +16,7 @@ public class PacienteResponseDTO {
 
     private Long idPaciente;
     private String apelido;
-    private CategoriaEspecie species;
+    private CategoriaEspecie especie;
     private String breed;
     private LocalDate birthDate;
     private Double weight;
