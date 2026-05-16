@@ -29,4 +29,9 @@ public class RegistroImunologicoRequestDTO {
 
     @NotNull(message = "A data de aplicação é obrigatória")
     private LocalDate dataAplicacao;
+
+    private LocalDate dataVencimento;
+
+    @NotNull(message = "O status da imunização é obrigatório")
+    private StatusImunizacao status;
 }
