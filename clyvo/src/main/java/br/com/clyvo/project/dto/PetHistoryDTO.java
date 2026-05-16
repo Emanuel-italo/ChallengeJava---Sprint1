@@ -1,4 +1,4 @@
-package br.com.petos.project.dto;
+package br.com.clyvo.project.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

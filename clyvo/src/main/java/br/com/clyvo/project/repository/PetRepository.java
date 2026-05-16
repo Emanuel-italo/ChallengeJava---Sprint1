@@ -1,7 +1,7 @@
-package br.com.petos.project.repository;
+package br.com.clyvo.project.repository;
 
-import br.com.petos.project.entity.Pet;
-import br.com.petos.project.enums.Species;
+import br.com.clyvo.project.entity.Pet;
+import br.com.clyvo.project.enums.Species;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

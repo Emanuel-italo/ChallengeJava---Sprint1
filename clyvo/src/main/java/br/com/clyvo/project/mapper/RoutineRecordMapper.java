@@ -1,9 +1,9 @@
-package br.com.petos.project.mapper;
+package br.com.clyvo.project.mapper;
 
-import br.com.petos.project.dto.RoutineRequestDTO;
-import br.com.petos.project.dto.RoutineResponseDTO;
-import br.com.petos.project.entity.Pet;
-import br.com.petos.project.entity.RoutineRecord;
+import br.com.clyvo.project.dto.RoutineRequestDTO;
+import br.com.clyvo.project.dto.RoutineResponseDTO;
+import br.com.clyvo.project.entity.Pet;
+import br.com.clyvo.project.entity.RoutineRecord;
 import org.springframework.stereotype.Component;
 
 @Component

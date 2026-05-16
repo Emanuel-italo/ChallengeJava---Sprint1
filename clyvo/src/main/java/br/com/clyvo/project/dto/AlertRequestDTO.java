@@ -1,6 +1,6 @@
-package br.com.petos.project.dto;
+package br.com.clyvo.project.dto;
 
-import br.com.petos.project.enums.AlertType;
+import br.com.clyvo.project.enums.AlertType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

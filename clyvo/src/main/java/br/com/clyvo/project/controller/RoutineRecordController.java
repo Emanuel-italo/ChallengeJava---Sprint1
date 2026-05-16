@@ -1,8 +1,8 @@
-package br.com.petos.project.controller;
+package br.com.clyvo.project.controller;
 
-import br.com.petos.project.dto.RoutineRequestDTO;
-import br.com.petos.project.dto.RoutineResponseDTO;
-import br.com.petos.project.service.RoutineRecordService;
+import br.com.clyvo.project.dto.RoutineRequestDTO;
+import br.com.clyvo.project.dto.RoutineResponseDTO;
+import br.com.clyvo.project.service.RoutineRecordService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

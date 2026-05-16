@@ -1,8 +1,8 @@
-package br.com.petos.project.controller;
+package br.com.clyvo.project.controller;
 
-import br.com.petos.project.dto.VaccineRequestDTO;
-import br.com.petos.project.dto.VaccineResponseDTO;
-import br.com.petos.project.service.VaccineService;
+import br.com.clyvo.project.dto.VaccineRequestDTO;
+import br.com.clyvo.project.dto.VaccineResponseDTO;
+import br.com.clyvo.project.service.VaccineService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

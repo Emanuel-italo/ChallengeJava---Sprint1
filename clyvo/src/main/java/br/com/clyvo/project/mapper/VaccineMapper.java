@@ -1,10 +1,10 @@
-package br.com.petos.project.mapper;
+package br.com.clyvo.project.mapper;
 
-import br.com.petos.project.dto.VaccineRequestDTO;
-import br.com.petos.project.dto.VaccineResponseDTO;
-import br.com.petos.project.entity.Pet;
-import br.com.petos.project.entity.Vaccine;
-import br.com.petos.project.enums.VaccineStatus;
+import br.com.clyvo.project.dto.VaccineRequestDTO;
+import br.com.clyvo.project.dto.VaccineResponseDTO;
+import br.com.clyvo.project.entity.Pet;
+import br.com.clyvo.project.entity.Vaccine;
+import br.com.clyvo.project.enums.VaccineStatus;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;

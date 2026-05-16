@@ -1,6 +1,6 @@
-package br.com.petos.project.repository;
+package br.com.clyvo.project.repository;
 
-import br.com.petos.project.entity.Alert;
+import br.com.clyvo.project.entity.Alert;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

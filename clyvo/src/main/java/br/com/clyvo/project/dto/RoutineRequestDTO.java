@@ -1,6 +1,6 @@
-package br.com.petos.project.dto;
+package br.com.clyvo.project.dto;
 
-import br.com.petos.project.enums.RoutineType;
+import br.com.clyvo.project.enums.RoutineType;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;

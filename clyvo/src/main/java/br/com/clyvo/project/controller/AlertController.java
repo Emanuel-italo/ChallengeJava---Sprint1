@@ -1,8 +1,8 @@
-package br.com.petos.project.controller;
+package br.com.clyvo.project.controller;
 
-import br.com.petos.project.dto.AlertRequestDTO;
-import br.com.petos.project.dto.AlertResponseDTO;
-import br.com.petos.project.service.AlertService;
+import br.com.clyvo.project.dto.AlertRequestDTO;
+import br.com.clyvo.project.dto.AlertResponseDTO;
+import br.com.clyvo.project.service.AlertService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

@@ -1,6 +1,6 @@
-package br.com.petos.project.dto;
+package br.com.clyvo.project.dto;
 
-import br.com.petos.project.enums.Species;
+import br.com.clyvo.project.enums.Species;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

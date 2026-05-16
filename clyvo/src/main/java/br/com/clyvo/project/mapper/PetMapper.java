@@ -1,8 +1,8 @@
-package br.com.petos.project.mapper;
+package br.com.clyvo.project.mapper;
 
-import br.com.petos.project.dto.PetRequestDTO;
-import br.com.petos.project.dto.PetResponseDTO;
-import br.com.petos.project.entity.Pet;
+import br.com.clyvo.project.dto.PetRequestDTO;
+import br.com.clyvo.project.dto.PetResponseDTO;
+import br.com.clyvo.project.entity.Pet;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;

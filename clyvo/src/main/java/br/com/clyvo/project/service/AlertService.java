@@ -1,12 +1,12 @@
-package br.com.petos.project.service;
+package br.com.clyvo.project.service;
 
-import br.com.petos.project.dto.AlertRequestDTO;
-import br.com.petos.project.dto.AlertResponseDTO;
-import br.com.petos.project.entity.Alert;
-import br.com.petos.project.entity.Pet;
-import br.com.petos.project.exception.ResourceNotFoundException;
-import br.com.petos.project.mapper.AlertMapper;
-import br.com.petos.project.repository.AlertRepository;
+import br.com.clyvo.project.dto.AlertRequestDTO;
+import br.com.clyvo.project.dto.AlertResponseDTO;
+import br.com.clyvo.project.entity.Alert;
+import br.com.clyvo.project.entity.Pet;
+import br.com.clyvo.project.exception.ResourceNotFoundException;
+import br.com.clyvo.project.mapper.AlertMapper;
+import br.com.clyvo.project.repository.AlertRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

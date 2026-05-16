@@ -1,7 +1,7 @@
-package br.com.petos.project.repository;
+package br.com.clyvo.project.repository;
 
-import br.com.petos.project.entity.RoutineRecord;
-import br.com.petos.project.enums.RoutineType;
+import br.com.clyvo.project.entity.RoutineRecord;
+import br.com.clyvo.project.enums.RoutineType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

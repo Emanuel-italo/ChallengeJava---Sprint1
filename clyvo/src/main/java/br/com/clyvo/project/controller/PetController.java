@@ -1,10 +1,10 @@
-package br.com.petos.project.controller;
+package br.com.clyvo.project.controller;
 
-import br.com.petos.project.dto.PetHistoryDTO;
-import br.com.petos.project.dto.PetRequestDTO;
-import br.com.petos.project.dto.PetResponseDTO;
-import br.com.petos.project.enums.Species;
-import br.com.petos.project.service.PetService;
+import br.com.clyvo.project.dto.PetHistoryDTO;
+import br.com.clyvo.project.dto.PetRequestDTO;
+import br.com.clyvo.project.dto.PetResponseDTO;
+import br.com.clyvo.project.enums.Species;
+import br.com.clyvo.project.service.PetService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

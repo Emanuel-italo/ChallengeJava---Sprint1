@@ -1,4 +1,4 @@
-package br.com.petos.project.exception;
+package br.com.clyvo.project.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;

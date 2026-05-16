@@ -1,4 +1,4 @@
-package br.com.petos.project.enums;
+package br.com.clyvo.project.enums;
 
 public enum RoutineType {
     FEEDING,

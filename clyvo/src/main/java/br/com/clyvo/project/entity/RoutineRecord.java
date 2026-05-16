@@ -1,6 +1,6 @@
-package br.com.petos.project.entity;
+package br.com.clyvo.project.entity;
 
-import br.com.petos.project.enums.RoutineType;
+import br.com.clyvo.project.enums.RoutineType;
 import jakarta.persistence.*;
 import lombok.*;
 

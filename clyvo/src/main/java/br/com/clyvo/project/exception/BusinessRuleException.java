@@ -1,4 +1,4 @@
-package br.com.petos.project.exception;
+package br.com.clyvo.project.exception;
 
 public class BusinessRuleException extends RuntimeException {
 

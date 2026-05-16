@@ -1,4 +1,4 @@
-package br.com.petos.project.config;
+package br.com.clyvo.project.config;
 
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;

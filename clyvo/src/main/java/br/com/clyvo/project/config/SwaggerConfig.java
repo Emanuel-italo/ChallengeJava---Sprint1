@@ -1,4 +1,4 @@
-package br.com.petos.project.config;
+package br.com.clyvo.project.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
