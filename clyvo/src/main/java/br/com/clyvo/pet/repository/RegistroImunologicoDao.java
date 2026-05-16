@@ -34,7 +34,7 @@ public class RegistroImunologicoDao {
         }
         return registro;
     }
-    
+
     public void remover(Long id) {
         RegistroImunologico registro = buscarPorId(id);
         entityManager.remove(registro);
