@@ -14,5 +14,16 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
+@RequiredArgsConstructor
 public class AtividadeDiariaService {
-}
+
+    private final AtividadeDiariaDao atividadeDao;
+    private final PacienteAnimalDao pacienteDao;
+
+    public List<AtividadeDiariaResponseDTO> buscarTodas() {
+        return atividadeDao.buscarTodos()
+                .stream()
+                .map(this::converterParaResponseDTO)
+                .collect(Collectors.toList());
+    }
