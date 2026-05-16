@@ -27,8 +27,8 @@ public class PacienteRequestDTO {
     @Past(message = "A data de nascimento deve ser uma data passada")
     private LocalDate dataNascimento;
 
-    @Positive(message = "Peso deve ser positivo")
-    private Double weight;
+    @Positive(message = "O peso deve ser um valor positivo")
+    private Double peso;
 
     @NotBlank(message = "Nome do tutor é obrigatório")
     @Size(max = 100, message = "Nome do tutor deve ter no máximo 100 caracteres")
