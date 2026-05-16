@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class PacienteResponseDTO {
 
     private Long idPaciente;
-    private String name;
+    private String apelido;
     private CategoriaEspecie species;
     private String breed;
     private LocalDate birthDate;
