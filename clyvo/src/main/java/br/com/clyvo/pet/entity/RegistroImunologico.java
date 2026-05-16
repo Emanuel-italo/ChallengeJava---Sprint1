@@ -1,6 +1,5 @@
 package br.com.clyvo.pet.entity;
 
-import br.com.clyvo.pet.enums.VaccineStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
