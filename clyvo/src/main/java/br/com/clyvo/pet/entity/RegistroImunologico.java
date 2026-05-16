@@ -18,25 +18,9 @@ import java.time.LocalDate;
 public class RegistroImunologico {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "pet_id", nullable = false)
-    private PacienteAnimal pet;
-
-    @Column(nullable = false, length = 100)
-    private String name;
-
-    @Column(name = "application_date")
-    private LocalDate applicationDate;
-
-    @Column(name = "due_date")
-    private LocalDate dueDate;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    @Builder.Default
-    private VaccineStatus status = VaccineStatus.PENDING;
-}
-
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_imunizacao")
+    @SequenceGenerator(name = "seq_imunizacao", sequenceName = "SEQ_REGISTRO_IMUNOLOGICO", allocationSize = 1)
+    @ChavePrimaria
+    @ColunaMapeada(nome = "ID_IMUNIZACAO")
+    @Column(name = "ID_IMUNIZACAO")
+    private Long idRegistro;
