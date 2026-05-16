@@ -1,6 +1,6 @@
 package br.com.clyvo.pet.enums;
 
-public enum RoutineType {
+public enum TipoRotina {
     FEEDING,
     BATHING,
     WALK,
