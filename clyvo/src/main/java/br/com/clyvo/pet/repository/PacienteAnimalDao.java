@@ -2,7 +2,7 @@ package br.com.clyvo.pet.repository;
 
 import br.com.clyvo.pet.entity.PacienteAnimal;
 import br.com.clyvo.pet.enums.CategoriaEspecie;
-import br.com.clyvo.pet.core.exception.EntidadeNaoLocalizadaException;
+import br.com.clyvo.pet.exception.EntidadeNaoLocalizadaException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
