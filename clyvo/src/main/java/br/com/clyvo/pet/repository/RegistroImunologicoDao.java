@@ -34,6 +34,27 @@ public class RegistroImunologicoDao {
         }
         return registro;
     }
+    
+    public void remover(Long id) {
+        RegistroImunologico registro = buscarPorId(id);
+        entityManager.remove(registro);
+    }
+
+    @Transactional(readOnly = true)
+    public List<RegistroImunologico> buscarTodos() {
+        return entityManager.createQuery("SELECT r FROM RegistroImunologico r ORDER BY r.dataAplicacao DESC", RegistroImunologico.class)
+                .getResultList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<RegistroImunologico> buscarPorPaciente(Long pacienteId) {
+        TypedQuery<RegistroImunologico> query = entityManager.createQuery(
+                "SELECT r FROM RegistroImunologico r WHERE r.paciente.idPaciente = :pacienteId ORDER BY r.dataAplicacao DESC",
+                RegistroImunologico.class);
+        query.setParameter("pacienteId", pacienteId);
+        return query.getResultList();
+    }
+}
 
 
 }
