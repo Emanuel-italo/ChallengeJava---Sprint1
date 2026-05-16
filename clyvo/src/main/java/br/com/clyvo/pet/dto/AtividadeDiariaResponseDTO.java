@@ -8,5 +8,16 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class AtividadeDiariaResponseDTO {
+
+    private Long id;
+    private Long pacienteId;
+    private String nomePaciente;
+    private TipoRotina tipo;
+    private String description;
+    private LocalDate dataRegistro;
 }
