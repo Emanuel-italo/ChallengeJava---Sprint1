@@ -53,3 +53,13 @@ public class AtividadeDiariaService {
 
         return converterParaResponseDTO(atividadeDao.salvar(novaAtividade));
     }
+
+    public AtividadeDiariaResponseDTO atualizar(Long id, AtividadeDiariaRequestDTO dto) {
+        AtividadeDiaria atividade = atividadeDao.buscarPorId(id);
+
+        atividade.setTipo(dto.getTipo());
+        atividade.setDescricao(dto.getDescricao());
+        atividade.setDataRegistro(dto.getDataRegistro());
+
+        return converterParaResponseDTO(atividadeDao.atualizar(atividade));
+    }
