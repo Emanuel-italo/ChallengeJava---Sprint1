@@ -63,3 +63,19 @@ public class AtividadeDiariaService {
 
         return converterParaResponseDTO(atividadeDao.atualizar(atividade));
     }
+
+    public void remover(Long id) {
+        atividadeDao.remover(id);
+    }
+
+    private AtividadeDiariaResponseDTO converterParaResponseDTO(AtividadeDiaria atividade) {
+        return AtividadeDiariaResponseDTO.builder()
+                .id(atividade.getIdRegistro())
+                .pacienteId(atividade.getPaciente().getIdPaciente())
+                .nomePaciente(atividade.getPaciente().getApelido())
+                .tipo(atividade.getTipo())
+                .description(atividade.getDescricao())
+                .dataRegistro(atividade.getDataRegistro())
+                .build();
+    }
+}
