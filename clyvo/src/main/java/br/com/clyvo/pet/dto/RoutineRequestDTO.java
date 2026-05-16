@@ -1,6 +1,6 @@
 package br.com.clyvo.pet.dto;
 
-import br.com.clyvo.pet.enums.RoutineType;
+import br.com.clyvo.pet.enums.TipoRotina;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -20,7 +20,7 @@ public class RoutineRequestDTO {
     private Long petId;
 
     @NotNull(message = "Tipo de rotina é obrigatório")
-    private RoutineType type;
+    private TipoRotina type;
 
     @Size(max = 500, message = "Descrição deve ter no máximo 500 caracteres")
     private String description;
