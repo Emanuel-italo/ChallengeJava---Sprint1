@@ -36,5 +36,8 @@ public class PacienteRequestDTO {
 
     @Size(max = 20, message = "O telefone de contato deve ter no máximo 20 caracteres")
     private String telefoneContato;
+
+    @Size(max = 1000, message = "O prontuário deve ter no máximo 1000 caracteres")
+    private String prontuarioDetalhado;
 }
 
