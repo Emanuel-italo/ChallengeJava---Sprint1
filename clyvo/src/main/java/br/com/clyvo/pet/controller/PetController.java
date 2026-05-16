@@ -3,7 +3,7 @@ package br.com.clyvo.pet.controller;
 import br.com.clyvo.pet.dto.PetHistoryDTO;
 import br.com.clyvo.pet.dto.PetRequestDTO;
 import br.com.clyvo.pet.dto.PetResponseDTO;
-import br.com.clyvo.pet.enums.Species;
+import br.com.clyvo.pet.enums.CategoriaEspecie;
 import br.com.clyvo.pet.service.PetService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -51,7 +51,7 @@ public class PetController {
     @GetMapping("/species/{species}")
     @Operation(summary = "Filtrar pets por espécie")
     public ResponseEntity<Page<PetResponseDTO>> findBySpecies(
-            @PathVariable Species species,
+            @PathVariable CategoriaEspecie species,
             @PageableDefault(size = 10, sort = "name") Pageable pageable) {
         return ResponseEntity.ok(petService.findBySpecies(species, pageable));
     }

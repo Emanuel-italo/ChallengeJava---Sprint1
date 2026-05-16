@@ -3,8 +3,8 @@ package br.com.clyvo.pet.service;
 import br.com.clyvo.pet.dto.VaccineRequestDTO;
 import br.com.clyvo.pet.dto.VaccineResponseDTO;
 import br.com.clyvo.pet.entity.AlertaPreditivo;
-import br.com.clyvo.pet.entity.Pet;
-import br.com.clyvo.pet.entity.Vaccine;
+import br.com.clyvo.pet.entity.PacienteAnimal;
+import br.com.clyvo.pet.entity.RegistroImunologico;
 import br.com.clyvo.pet.enums.TipoAlertaPreditivo;
 import br.com.clyvo.pet.enums.VaccineStatus;
 import br.com.clyvo.pet.exception.ResourceNotFoundException;
@@ -56,8 +56,8 @@ public class VaccineService {
 
     @Transactional
     public VaccineResponseDTO create(VaccineRequestDTO dto) {
-        Pet pet = petService.findPetById(dto.getPetId());
-        Vaccine vaccine = vaccineMapper.toEntity(dto, pet);
+        PacienteAnimal pet = petService.findPetById(dto.getPetId());
+        RegistroImunologico vaccine = vaccineMapper.toEntity(dto, pet);
 
         // Regra de negócio: atualizar status automaticamente
         vaccine = updateVaccineStatus(vaccine);
@@ -73,7 +73,7 @@ public class VaccineService {
 
     @Transactional
     public VaccineResponseDTO update(Long id, VaccineRequestDTO dto) {
-        Vaccine vaccine = findVaccineById(id);
+        RegistroImunologico vaccine = findVaccineById(id);
         vaccineMapper.updateEntity(vaccine, dto);
         vaccine = updateVaccineStatus(vaccine);
         return vaccineMapper.toResponseDTO(vaccineRepository.save(vaccine));
@@ -81,11 +81,11 @@ public class VaccineService {
 
     @Transactional
     public void delete(Long id) {
-        Vaccine vaccine = findVaccineById(id);
+        RegistroImunologico vaccine = findVaccineById(id);
         vaccineRepository.delete(vaccine);
     }
 
-    private Vaccine updateVaccineStatus(Vaccine vaccine) {
+    private RegistroImunologico updateVaccineStatus(RegistroImunologico vaccine) {
         if (vaccine.getDueDate() == null) return vaccine;
 
         LocalDate today = LocalDate.now();
@@ -106,7 +106,7 @@ public class VaccineService {
         return vaccine;
     }
 
-    private void generateVaccineAlert(Pet pet, Vaccine vaccine) {
+    private void generateVaccineAlert(PacienteAnimal pet, RegistroImunologico vaccine) {
         String message = String.format(
                 "Vacina '%s' do pet %s vence em %s. Agende a dose de reforço!",
                 vaccine.getName(), pet.getName(), vaccine.getDueDate()
@@ -122,7 +122,7 @@ public class VaccineService {
         alertRepository.save(alert);
     }
 
-    private Vaccine findVaccineById(Long id) {
+    private RegistroImunologico findVaccineById(Long id) {
         return vaccineRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Vacina", id));
     }

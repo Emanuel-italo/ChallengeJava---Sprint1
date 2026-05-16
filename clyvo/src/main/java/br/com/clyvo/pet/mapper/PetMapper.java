@@ -2,7 +2,7 @@ package br.com.clyvo.pet.mapper;
 
 import br.com.clyvo.pet.dto.PetRequestDTO;
 import br.com.clyvo.pet.dto.PetResponseDTO;
-import br.com.clyvo.pet.entity.Pet;
+import br.com.clyvo.pet.entity.PacienteAnimal;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -11,8 +11,8 @@ import java.time.Period;
 @Component
 public class PetMapper {
 
-    public Pet toEntity(PetRequestDTO dto) {
-        return Pet.builder()
+    public PacienteAnimal toEntity(PetRequestDTO dto) {
+        return PacienteAnimal.builder()
                 .name(dto.getName())
                 .species(dto.getSpecies())
                 .breed(dto.getBreed())
@@ -24,7 +24,7 @@ public class PetMapper {
                 .build();
     }
 
-    public PetResponseDTO toResponseDTO(Pet pet) {
+    public PetResponseDTO toResponseDTO(PacienteAnimal pet) {
         Integer ageInMonths = null;
         if (pet.getBirthDate() != null) {
             Period period = Period.between(pet.getBirthDate(), LocalDate.now());
@@ -44,7 +44,7 @@ public class PetMapper {
                 .build();
     }
 
-    public void updateEntity(Pet pet, PetRequestDTO dto) {
+    public void updateEntity(PacienteAnimal pet, PetRequestDTO dto) {
         pet.setName(dto.getName());
         pet.setSpecies(dto.getSpecies());
         pet.setBreed(dto.getBreed());

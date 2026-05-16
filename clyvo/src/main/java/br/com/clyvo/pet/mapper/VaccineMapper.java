@@ -2,8 +2,8 @@ package br.com.clyvo.pet.mapper;
 
 import br.com.clyvo.pet.dto.VaccineRequestDTO;
 import br.com.clyvo.pet.dto.VaccineResponseDTO;
-import br.com.clyvo.pet.entity.Pet;
-import br.com.clyvo.pet.entity.Vaccine;
+import br.com.clyvo.pet.entity.PacienteAnimal;
+import br.com.clyvo.pet.entity.RegistroImunologico;
 import br.com.clyvo.pet.enums.VaccineStatus;
 import org.springframework.stereotype.Component;
 
@@ -12,9 +12,9 @@ import java.time.LocalDate;
 @Component
 public class VaccineMapper {
 
-    public Vaccine toEntity(VaccineRequestDTO dto, Pet pet) {
+    public RegistroImunologico toEntity(VaccineRequestDTO dto, PacienteAnimal pet) {
         VaccineStatus status = dto.getStatus() != null ? dto.getStatus() : VaccineStatus.PENDING;
-        return Vaccine.builder()
+        return RegistroImunologico.builder()
                 .pet(pet)
                 .name(dto.getName())
                 .applicationDate(dto.getApplicationDate())
@@ -23,7 +23,7 @@ public class VaccineMapper {
                 .build();
     }
 
-    public VaccineResponseDTO toResponseDTO(Vaccine vaccine) {
+    public VaccineResponseDTO toResponseDTO(RegistroImunologico vaccine) {
         boolean expiringSoon = false;
         if (vaccine.getDueDate() != null && vaccine.getStatus() != VaccineStatus.APPLIED) {
             expiringSoon = vaccine.getDueDate().isBefore(LocalDate.now().plusDays(30));
@@ -40,7 +40,7 @@ public class VaccineMapper {
                 .build();
     }
 
-    public void updateEntity(Vaccine vaccine, VaccineRequestDTO dto) {
+    public void updateEntity(RegistroImunologico vaccine, VaccineRequestDTO dto) {
         vaccine.setName(dto.getName());
         vaccine.setApplicationDate(dto.getApplicationDate());
         vaccine.setDueDate(dto.getDueDate());

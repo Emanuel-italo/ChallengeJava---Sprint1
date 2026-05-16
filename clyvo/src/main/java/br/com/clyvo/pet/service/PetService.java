@@ -3,8 +3,8 @@ package br.com.clyvo.pet.service;
 import br.com.clyvo.pet.dto.PetHistoryDTO;
 import br.com.clyvo.pet.dto.PetRequestDTO;
 import br.com.clyvo.pet.dto.PetResponseDTO;
-import br.com.clyvo.pet.entity.Pet;
-import br.com.clyvo.pet.enums.Species;
+import br.com.clyvo.pet.entity.PacienteAnimal;
+import br.com.clyvo.pet.enums.CategoriaEspecie;
 import br.com.clyvo.pet.exception.ResourceNotFoundException;
 import br.com.clyvo.pet.mapper.AlertMapper;
 import br.com.clyvo.pet.mapper.PetMapper;
@@ -52,7 +52,7 @@ public class PetService {
     }
 
     @Transactional(readOnly = true)
-    public Page<PetResponseDTO> findBySpecies(Species species, Pageable pageable) {
+    public Page<PetResponseDTO> findBySpecies(CategoriaEspecie species, Pageable pageable) {
         return petRepository.findBySpeciesAndActiveTrue(species, pageable)
                 .map(petMapper::toResponseDTO);
     }
@@ -69,7 +69,7 @@ public class PetService {
 
     @Transactional(readOnly = true)
     public PetHistoryDTO getPetHistory(Long id) {
-        Pet pet = findPetById(id);
+        PacienteAnimal pet = findPetById(id);
         return PetHistoryDTO.builder()
                 .pet(petMapper.toResponseDTO(pet))
                 .vaccines(pet.getVaccines().stream().map(vaccineMapper::toResponseDTO).toList())
@@ -81,14 +81,14 @@ public class PetService {
     @CacheEvict(value = {"pets", "pet"}, allEntries = true)
     @Transactional
     public PetResponseDTO create(PetRequestDTO dto) {
-        Pet pet = petMapper.toEntity(dto);
+        PacienteAnimal pet = petMapper.toEntity(dto);
         return petMapper.toResponseDTO(petRepository.save(pet));
     }
 
     @CacheEvict(value = {"pets", "pet"}, allEntries = true)
     @Transactional
     public PetResponseDTO update(Long id, PetRequestDTO dto) {
-        Pet pet = findPetById(id);
+        PacienteAnimal pet = findPetById(id);
         petMapper.updateEntity(pet, dto);
         return petMapper.toResponseDTO(petRepository.save(pet));
     }
@@ -96,12 +96,12 @@ public class PetService {
     @CacheEvict(value = {"pets", "pet"}, allEntries = true)
     @Transactional
     public void delete(Long id) {
-        Pet pet = findPetById(id);
+        PacienteAnimal pet = findPetById(id);
         pet.setActive(false);
         petRepository.save(pet);
     }
 
-    public Pet findPetById(Long id) {
+    public PacienteAnimal findPetById(Long id) {
         return petRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Pet", id));
     }

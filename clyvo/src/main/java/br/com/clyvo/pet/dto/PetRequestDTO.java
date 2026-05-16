@@ -1,6 +1,6 @@
 package br.com.clyvo.pet.dto;
 
-import br.com.clyvo.pet.enums.Species;
+import br.com.clyvo.pet.enums.CategoriaEspecie;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,7 +20,7 @@ public class PetRequestDTO {
     private String name;
 
     @NotNull(message = "Espécie é obrigatória")
-    private Species species;
+    private CategoriaEspecie species;
 
     @Size(max = 100, message = "Raça deve ter no máximo 100 caracteres")
     private String breed;

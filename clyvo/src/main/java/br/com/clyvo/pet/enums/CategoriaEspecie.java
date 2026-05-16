@@ -1,6 +1,6 @@
 package br.com.clyvo.pet.enums;
 
-public enum Species {
+public enum CategoriaEspecie {
     DOG,
     CAT,
     BIRD,

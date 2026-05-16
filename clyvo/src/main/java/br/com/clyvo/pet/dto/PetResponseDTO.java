@@ -1,6 +1,6 @@
 package br.com.clyvo.pet.dto;
 
-import br.com.clyvo.pet.enums.Species;
+import br.com.clyvo.pet.enums.CategoriaEspecie;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +16,7 @@ public class PetResponseDTO {
 
     private Long id;
     private String name;
-    private Species species;
+    private CategoriaEspecie species;
     private String breed;
     private LocalDate birthDate;
     private Double weight;

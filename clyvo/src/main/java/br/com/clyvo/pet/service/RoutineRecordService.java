@@ -2,8 +2,8 @@ package br.com.clyvo.pet.service;
 
 import br.com.clyvo.pet.dto.RoutineRequestDTO;
 import br.com.clyvo.pet.dto.RoutineResponseDTO;
-import br.com.clyvo.pet.entity.Pet;
-import br.com.clyvo.pet.entity.RoutineRecord;
+import br.com.clyvo.pet.entity.PacienteAnimal;
+import br.com.clyvo.pet.entity.AtividadeDiaria;
 import br.com.clyvo.pet.exception.ResourceNotFoundException;
 import br.com.clyvo.pet.mapper.RoutineRecordMapper;
 import br.com.clyvo.pet.repository.RoutineRecordRepository;
@@ -42,25 +42,25 @@ public class RoutineRecordService {
 
     @Transactional
     public RoutineResponseDTO create(RoutineRequestDTO dto) {
-        Pet pet = petService.findPetById(dto.getPetId());
-        RoutineRecord record = routineRecordMapper.toEntity(dto, pet);
+        PacienteAnimal pet = petService.findPetById(dto.getPetId());
+        AtividadeDiaria record = routineRecordMapper.toEntity(dto, pet);
         return routineRecordMapper.toResponseDTO(routineRecordRepository.save(record));
     }
 
     @Transactional
     public RoutineResponseDTO update(Long id, RoutineRequestDTO dto) {
-        RoutineRecord record = findRecordById(id);
+        AtividadeDiaria record = findRecordById(id);
         routineRecordMapper.updateEntity(record, dto);
         return routineRecordMapper.toResponseDTO(routineRecordRepository.save(record));
     }
 
     @Transactional
     public void delete(Long id) {
-        RoutineRecord record = findRecordById(id);
+        AtividadeDiaria record = findRecordById(id);
         routineRecordRepository.delete(record);
     }
 
-    private RoutineRecord findRecordById(Long id) {
+    private AtividadeDiaria findRecordById(Long id) {
         return routineRecordRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Registro de rotina", id));
     }

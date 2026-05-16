@@ -2,15 +2,15 @@ package br.com.clyvo.pet.mapper;
 
 import br.com.clyvo.pet.dto.RoutineRequestDTO;
 import br.com.clyvo.pet.dto.RoutineResponseDTO;
-import br.com.clyvo.pet.entity.Pet;
-import br.com.clyvo.pet.entity.RoutineRecord;
+import br.com.clyvo.pet.entity.PacienteAnimal;
+import br.com.clyvo.pet.entity.AtividadeDiaria;
 import org.springframework.stereotype.Component;
 
 @Component
 public class RoutineRecordMapper {
 
-    public RoutineRecord toEntity(RoutineRequestDTO dto, Pet pet) {
-        return RoutineRecord.builder()
+    public AtividadeDiaria toEntity(RoutineRequestDTO dto, PacienteAnimal pet) {
+        return AtividadeDiaria.builder()
                 .pet(pet)
                 .type(dto.getType())
                 .description(dto.getDescription())
@@ -18,7 +18,7 @@ public class RoutineRecordMapper {
                 .build();
     }
 
-    public RoutineResponseDTO toResponseDTO(RoutineRecord record) {
+    public RoutineResponseDTO toResponseDTO(AtividadeDiaria record) {
         return RoutineResponseDTO.builder()
                 .id(record.getId())
                 .petId(record.getPet().getId())
@@ -29,7 +29,7 @@ public class RoutineRecordMapper {
                 .build();
     }
 
-    public void updateEntity(RoutineRecord record, RoutineRequestDTO dto) {
+    public void updateEntity(AtividadeDiaria record, RoutineRequestDTO dto) {
         record.setType(dto.getType());
         record.setDescription(dto.getDescription());
         record.setRecordDate(dto.getRecordDate());

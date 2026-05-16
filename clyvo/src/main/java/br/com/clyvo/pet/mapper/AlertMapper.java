@@ -3,7 +3,7 @@ package br.com.clyvo.pet.mapper;
 import br.com.clyvo.pet.dto.AlertaPreditivoRequestDTO;
 import br.com.clyvo.pet.dto.AlertaPreditivoResponseDTO;
 import br.com.clyvo.pet.entity.AlertaPreditivo;
-import br.com.clyvo.pet.entity.Pet;
+import br.com.clyvo.pet.entity.PacienteAnimal;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Component
 public class AlertMapper {
 
-    public AlertaPreditivo toEntity(AlertaPreditivoRequestDTO dto, Pet pet) {
+    public AlertaPreditivo toEntity(AlertaPreditivoRequestDTO dto, PacienteAnimal pet) {
         return AlertaPreditivo.builder()
                 .pet(pet)
                 .type(dto.getType())

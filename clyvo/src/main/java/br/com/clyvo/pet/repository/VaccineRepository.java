@@ -1,6 +1,6 @@
 package br.com.clyvo.pet.repository;
 
-import br.com.clyvo.pet.entity.Vaccine;
+import br.com.clyvo.pet.entity.RegistroImunologico;
 import br.com.clyvo.pet.enums.VaccineStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -11,16 +11,16 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-public interface VaccineRepository extends JpaRepository<Vaccine, Long> {
+public interface VaccineRepository extends JpaRepository<RegistroImunologico, Long> {
 
-    List<Vaccine> findByPetId(Long petId);
+    List<RegistroImunologico> findByPetId(Long petId);
 
-    List<Vaccine> findByPetIdAndStatus(Long petId, VaccineStatus status);
+    List<RegistroImunologico> findByPetIdAndStatus(Long petId, VaccineStatus status);
 
     @Query("SELECT v FROM Vaccine v WHERE v.pet.id = :petId AND (v.status = 'PENDING' OR v.status = 'EXPIRING_SOON')")
-    List<Vaccine> findPendingByPetId(@Param("petId") Long petId);
+    List<RegistroImunologico> findPendingByPetId(@Param("petId") Long petId);
 
     @Query("SELECT v FROM Vaccine v WHERE v.dueDate <= :threshold AND v.status != 'APPLIED'")
-    List<Vaccine> findVaccinesDueBefore(@Param("threshold") LocalDate threshold);
+    List<RegistroImunologico> findVaccinesDueBefore(@Param("threshold") LocalDate threshold);
 }
 
