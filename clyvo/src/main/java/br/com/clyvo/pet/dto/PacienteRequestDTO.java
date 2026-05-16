@@ -18,8 +18,8 @@ public class PacienteRequestDTO {
     @Size(min = 2, max = 100, message = "O apelido deve ter entre 2 e 100 caracteres")
     private String apelido;
 
-    @NotNull(message = "Espécie é obrigatória")
-    private CategoriaEspecie species;
+    @NotNull(message = "A categoria da espécie é obrigatória")
+    private CategoriaEspecie especie;
 
     @Size(max = 100, message = "Raça deve ter no máximo 100 caracteres")
     private String breed;
