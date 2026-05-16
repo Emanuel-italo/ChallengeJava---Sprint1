@@ -24,3 +24,8 @@ public class RegistroImunologico {
     @ColunaMapeada(nome = "ID_IMUNIZACAO")
     @Column(name = "ID_IMUNIZACAO")
     private Long idRegistro;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_PACIENTE", nullable = false)
+    @ColunaMapeada(nome = "ID_PACIENTE")
+    private PacienteAnimal paciente;
