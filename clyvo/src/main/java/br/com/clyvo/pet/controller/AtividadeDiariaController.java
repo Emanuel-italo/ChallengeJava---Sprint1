@@ -25,3 +25,9 @@ public class AtividadeDiariaController {
     public ResponseEntity<List<AtividadeDiariaResponseDTO>> buscarTodas() {
         return ResponseEntity.ok(atividadeService.buscarTodas());
     }
+
+    @GetMapping("/rotinas/{id}")
+    @Operation(summary = "Buscar registro de atividade por ID")
+    public ResponseEntity<AtividadeDiariaResponseDTO> buscarPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(atividadeService.buscarPorId(id));
+    }
