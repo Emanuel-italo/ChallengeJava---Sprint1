@@ -13,9 +13,10 @@ import java.util.List;
 @AllArgsConstructor
 public class PacienteHistoricoDTO {
 
-    private PacienteResponseDTO pet;
-    private List<VaccineResponseDTO> vaccines;
-    private List<RoutineResponseDTO> routines;
-    private List<AlertaPreditivoResponseDTO> alerts;
-}
+    private PacienteResponseDTO paciente;
+    private List<AlertaPreditivoResponseDTO> alertas;
 
+    
+    private List<Object> imunizacoes;
+    private List<Object> atividades;
+}
