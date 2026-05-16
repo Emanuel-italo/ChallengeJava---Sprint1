@@ -15,3 +15,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AtividadeDiariaRequestDTO {
+
+    @NotNull(message = "O identificador do paciente é obrigatório")
+    private Long pacienteId;
