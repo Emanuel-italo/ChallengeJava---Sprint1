@@ -4,9 +4,8 @@ import br.com.clyvo.pet.dto.RoutineRequestDTO;
 import br.com.clyvo.pet.dto.RoutineResponseDTO;
 import br.com.clyvo.pet.entity.PacienteAnimal;
 import br.com.clyvo.pet.entity.AtividadeDiaria;
-import br.com.clyvo.pet.exception.ResourceNotFoundException;
+import br.com.clyvo.pet.exception.EntidadeNaoLocalizadaException;
 import br.com.clyvo.pet.mapper.RoutineRecordMapper;
-import br.com.clyvo.pet.repository.RoutineRecordRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -62,7 +61,7 @@ public class RoutineRecordService {
 
     private AtividadeDiaria findRecordById(Long id) {
         return routineRecordRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Registro de rotina", id));
+                .orElseThrow(() -> new EntidadeNaoLocalizadaException("Registro de rotina", id));
     }
 }
 

@@ -15,26 +15,26 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(ResourceNotFoundException.class)
+    @ExceptionHandler(EntidadeNaoLocalizadaException.class)
     public ResponseEntity<ErrorResponse> handleResourceNotFoundException(
-            ResourceNotFoundException ex, HttpServletRequest request) {
+            EntidadeNaoLocalizadaException ex, HttpServletRequest request) {
         ErrorResponse error = new ErrorResponse(
                 LocalDateTime.now(),
                 HttpStatus.NOT_FOUND.value(),
-                "Not Found",
+                "Registro Não Localizado",
                 ex.getMessage(),
                 request.getRequestURI()
         );
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 
-    @ExceptionHandler(BusinessRuleException.class)
+    @ExceptionHandler(InconsistenciaRegraClyvoException.class)
     public ResponseEntity<ErrorResponse> handleBusinessRuleException(
-            BusinessRuleException ex, HttpServletRequest request) {
+            InconsistenciaRegraClyvoException ex, HttpServletRequest request) {
         ErrorResponse error = new ErrorResponse(
                 LocalDateTime.now(),
                 HttpStatus.UNPROCESSABLE_ENTITY.value(),
-                "Business Rule Violation",
+                "Violação de Regra de Negócio",
                 ex.getMessage(),
                 request.getRequestURI()
         );
@@ -51,8 +51,8 @@ public class GlobalExceptionHandler {
         ValidationErrorResponse error = new ValidationErrorResponse(
                 LocalDateTime.now(),
                 HttpStatus.BAD_REQUEST.value(),
-                "Validation Failed",
-                "Erros de validação nos campos",
+                "Falha de Validação",
+                "Foram encontrados erros nos dados enviados.",
                 request.getRequestURI(),
                 fieldErrors
         );
@@ -65,8 +65,8 @@ public class GlobalExceptionHandler {
         ErrorResponse error = new ErrorResponse(
                 LocalDateTime.now(),
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                "Internal Server Error",
-                "Ocorreu um erro inesperado. Tente novamente mais tarde.",
+                "Erro Interno no Servidor",
+                "Ocorreu um erro inesperado na infraestrutura da Clyvo. Tente novamente mais tarde.",
                 request.getRequestURI()
         );
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
@@ -89,4 +89,3 @@ public class GlobalExceptionHandler {
             Map<String, String> fieldErrors
     ) {}
 }
-

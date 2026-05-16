@@ -7,10 +7,8 @@ import br.com.clyvo.pet.entity.PacienteAnimal;
 import br.com.clyvo.pet.entity.RegistroImunologico;
 import br.com.clyvo.pet.enums.TipoAlertaPreditivo;
 import br.com.clyvo.pet.enums.VaccineStatus;
-import br.com.clyvo.pet.exception.ResourceNotFoundException;
+import br.com.clyvo.pet.exception.EntidadeNaoLocalizadaException;
 import br.com.clyvo.pet.mapper.VaccineMapper;
-import br.com.clyvo.pet.repository.AlertRepository;
-import br.com.clyvo.pet.repository.VaccineRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -124,7 +122,7 @@ public class VaccineService {
 
     private RegistroImunologico findVaccineById(Long id) {
         return vaccineRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Vacina", id));
+                .orElseThrow(() -> new EntidadeNaoLocalizadaException("Vacina", id));
     }
 }
 
