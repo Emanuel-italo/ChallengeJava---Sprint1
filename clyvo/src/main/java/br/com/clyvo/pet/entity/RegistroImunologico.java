@@ -29,3 +29,7 @@ public class RegistroImunologico {
     @JoinColumn(name = "ID_PACIENTE", nullable = false)
     @ColunaMapeada(nome = "ID_PACIENTE")
     private PacienteAnimal paciente;
+
+    @Column(name = "NOME_VACINA", nullable = false, length = 100)
+    @ColunaMapeada(nome = "NOME_VACINA")
+    private String nomeVacina;
