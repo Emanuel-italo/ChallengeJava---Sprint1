@@ -15,8 +15,6 @@ public class PacienteHistoricoDTO {
 
     private PacienteResponseDTO paciente;
     private List<AlertaPreditivoResponseDTO> alertas;
-
-
-    private List<Object> imunizacoes;
-    private List<Object> atividades;
+    private List<RegistroImunologicoResponseDTO> imunizacoes;
+    private List<AtividadeDiariaResponseDTO> atividades;
 }
