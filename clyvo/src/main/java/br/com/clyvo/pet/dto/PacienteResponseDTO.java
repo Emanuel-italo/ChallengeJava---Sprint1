@@ -19,7 +19,7 @@ public class PacienteResponseDTO {
     private CategoriaEspecie especie;
     private String raca;
     private LocalDate dataNascimento;
-    private Double weight;
+    private Double peso;
     private String tutorName;
     private String tutorPhone;
     private Boolean active;
