@@ -54,3 +54,11 @@ public ResponseEntity<RegistroImunologicoResponseDTO> registrar(@Valid @RequestB
 public ResponseEntity<RegistroImunologicoResponseDTO> atualizar(@PathVariable Long id, @Valid @RequestBody RegistroImunologicoRequestDTO dto) {
     return ResponseEntity.ok(registroService.atualizar(id, dto));
 }
+
+@DeleteMapping("/{id}")
+@Operation(summary = "Remover registro de imunização")
+public ResponseEntity<Void> remover(@PathVariable Long id) {
+    registroService.remover(id);
+    return ResponseEntity.noContent().build();
+}
+}
