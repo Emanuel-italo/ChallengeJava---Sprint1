@@ -1,12 +1,15 @@
-package br.com.clyvo.pet.entity;
-
+import br.com.clyvo.pet.core.annotations.ChavePrimaria;
+import br.com.clyvo.pet.core.annotations.ColunaMapeada;
+import br.com.clyvo.pet.core.annotations.TabelaMapeada;
+import br.com.clyvo.pet.enums.StatusImunizacao;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "vaccines")
+@Table(name = "TB_REGISTRO_IMUNOLOGICO")
+@TabelaMapeada(nome = "TB_REGISTRO_IMUNOLOGICO")
 @Getter
 @Setter
 @NoArgsConstructor
