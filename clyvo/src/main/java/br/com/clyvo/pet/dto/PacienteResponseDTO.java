@@ -21,8 +21,8 @@ public class PacienteResponseDTO {
     private LocalDate dataNascimento;
     private Double peso;
     private String responsavelLegal;
-    private String tutorPhone;
-    private Boolean active;
-    private Integer ageInMonths;
+    private String telefoneContato;
+    private String prontuarioDetalhado;
+    private Boolean ativo;
+    private Integer idadeEmMeses;
 }
-
