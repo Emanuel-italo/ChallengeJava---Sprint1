@@ -1,6 +1,6 @@
 package br.com.clyvo.pet.dto;
 
-import br.com.clyvo.pet.enums.RoutineType;
+import br.com.clyvo.pet.enums.TipoRotina;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +17,7 @@ public class RoutineResponseDTO {
     private Long id;
     private Long petId;
     private String petName;
-    private RoutineType type;
+    private TipoRotina type;
     private String description;
     private LocalDate recordDate;
 }
