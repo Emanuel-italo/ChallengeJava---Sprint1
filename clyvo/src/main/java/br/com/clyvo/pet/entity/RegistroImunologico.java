@@ -33,3 +33,21 @@ public class RegistroImunologico {
     @Column(name = "NOME_VACINA", nullable = false, length = 100)
     @ColunaMapeada(nome = "NOME_VACINA")
     private String nomeVacina;
+
+    @Column(name = "LOTE_VACINA", length = 50)
+    @ColunaMapeada(nome = "LOTE_VACINA")
+    private String lote;
+
+    @Column(name = "DATA_APLICACAO", nullable = false)
+    @ColunaMapeada(nome = "DATA_APLICACAO")
+    private LocalDate dataAplicacao;
+
+    @Column(name = "DATA_VENCIMENTO")
+    @ColunaMapeada(nome = "DATA_VENCIMENTO")
+    private LocalDate dataVencimento;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "STATUS_IMUNIZACAO", nullable = false)
+    @ColunaMapeada(nome = "STATUS_IMUNIZACAO")
+    private StatusImunizacao status;
+}
