@@ -32,11 +32,24 @@ public class AtividadeDiariaService {
         AtividadeDiaria atividade = atividadeDao.buscarPorId(id);
         return converterParaResponseDTO(atividade);
     }
-    
+
     public List<AtividadeDiariaResponseDTO> buscarPorPacienteId(Long pacienteId) {
         pacienteDao.buscarPorId(pacienteId);
         return atividadeDao.buscarPorPaciente(pacienteId)
                 .stream()
                 .map(this::converterParaResponseDTO)
                 .collect(Collectors.toList());
+    }
+
+    public AtividadeDiariaResponseDTO registrar(AtividadeDiariaRequestDTO dto) {
+        PacienteAnimal paciente = pacienteDao.buscarPorId(dto.getPacienteId());
+
+        AtividadeDiaria novaAtividade = AtividadeDiaria.builder()
+                .paciente(paciente)
+                .tipo(dto.getTipo())
+                .descricao(dto.getDescricao())
+                .dataRegistro(dto.getDataRegistro())
+                .build();
+
+        return converterParaResponseDTO(atividadeDao.salvar(novaAtividade));
     }
