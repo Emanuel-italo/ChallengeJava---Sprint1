@@ -24,8 +24,8 @@ public class PacienteRequestDTO {
     @Size(max = 100, message = "A raça deve ter no máximo 100 caracteres")
     private String raca;
 
-    @Past(message = "Data de nascimento deve ser no passado")
-    private LocalDate birthDate;
+    @Past(message = "A data de nascimento deve ser uma data passada")
+    private LocalDate dataNascimento;
 
     @Positive(message = "Peso deve ser positivo")
     private Double weight;
