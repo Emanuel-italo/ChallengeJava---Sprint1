@@ -21,8 +21,8 @@ public class PacienteRequestDTO {
     @NotNull(message = "A categoria da espécie é obrigatória")
     private CategoriaEspecie especie;
 
-    @Size(max = 100, message = "Raça deve ter no máximo 100 caracteres")
-    private String breed;
+    @Size(max = 100, message = "A raça deve ter no máximo 100 caracteres")
+    private String raca;
 
     @Past(message = "Data de nascimento deve ser no passado")
     private LocalDate birthDate;
