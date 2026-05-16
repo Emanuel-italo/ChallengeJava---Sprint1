@@ -20,7 +20,7 @@ public class PacienteResponseDTO {
     private String raca;
     private LocalDate dataNascimento;
     private Double peso;
-    private String tutorName;
+    private String responsavelLegal;
     private String tutorPhone;
     private Boolean active;
     private Integer ageInMonths;
