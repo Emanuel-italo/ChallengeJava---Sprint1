@@ -1,13 +1,17 @@
 package br.com.clyvo.pet.entity;
 
-import br.com.clyvo.pet.enums.RoutineType;
+import br.com.clyvo.pet.core.annotations.ChavePrimaria;
+import br.com.clyvo.pet.core.annotations.ColunaMapeada;
+import br.com.clyvo.pet.core.annotations.TabelaMapeada;
+import br.com.clyvo.pet.enums.TipoRotina;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "routine_records")
+@Table(name = "TB_ATIVIDADE_DIARIA")
+@TabelaMapeada(nome = "TB_ATIVIDADE_DIARIA")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,21 +20,28 @@ import java.time.LocalDate;
 public class AtividadeDiaria {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_atividade")
+    @SequenceGenerator(name = "seq_atividade", sequenceName = "SEQ_ATIVIDADE_DIARIA", allocationSize = 1)
+    @ChavePrimaria
+    @ColunaMapeada(nome = "ID_ATIVIDADE")
+    @Column(name = "ID_ATIVIDADE")
+    private Long idRegistro;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "pet_id", nullable = false)
-    private PacienteAnimal pet;
+    @JoinColumn(name = "ID_PACIENTE", nullable = false)
+    @ColunaMapeada(nome = "ID_PACIENTE")
+    private PacienteAnimal paciente;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private RoutineType type;
+    @Column(name = "TIPO_ATIVIDADE", nullable = false)
+    @ColunaMapeada(nome = "TIPO_ATIVIDADE")
+    private TipoRotina tipo;
 
-    @Column(length = 500)
-    private String description;
+    @Column(name = "DESCRICAO_ATIVIDADE", length = 500)
+    @ColunaMapeada(nome = "DESCRICAO_ATIVIDADE")
+    private String descricao;
 
-    @Column(name = "record_date", nullable = false)
-    private LocalDate recordDate;
+    @Column(name = "DATA_REGISTRO", nullable = false)
+    @ColunaMapeada(nome = "DATA_REGISTRO")
+    private LocalDate dataRegistro;
 }
-
