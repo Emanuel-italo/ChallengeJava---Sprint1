@@ -17,3 +17,11 @@ import java.util.List;
 @RequiredArgsConstructor
 @Tag(name = "Atividades de Rotina", description = "Gerenciamento de cuidados diários e preventivos do paciente")
 public class AtividadeDiariaController {
+
+    private final AtividadeDiariaService atividadeService;
+
+    @GetMapping("/rotinas")
+    @Operation(summary = "Listar todos os registros de atividades diárias")
+    public ResponseEntity<List<AtividadeDiariaResponseDTO>> buscarTodas() {
+        return ResponseEntity.ok(atividadeService.buscarTodas());
+    }
