@@ -30,9 +30,9 @@ public class PacienteRequestDTO {
     @Positive(message = "O peso deve ser um valor positivo")
     private Double peso;
 
-    @NotBlank(message = "Nome do tutor é obrigatório")
-    @Size(max = 100, message = "Nome do tutor deve ter no máximo 100 caracteres")
-    private String tutorName;
+    @NotBlank(message = "O nome do responsável legal é obrigatório")
+    @Size(max = 100, message = "O nome do responsável deve ter no máximo 100 caracteres")
+    private String responsavelLegal;
 
     @Size(max = 20, message = "Telefone deve ter no máximo 20 caracteres")
     private String tutorPhone;
