@@ -11,9 +11,9 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PetHistoryDTO {
+public class PacienteHistoricoDTO {
 
-    private PetResponseDTO pet;
+    private PacienteResponseDTO pet;
     private List<VaccineResponseDTO> vaccines;
     private List<RoutineResponseDTO> routines;
     private List<AlertaPreditivoResponseDTO> alerts;

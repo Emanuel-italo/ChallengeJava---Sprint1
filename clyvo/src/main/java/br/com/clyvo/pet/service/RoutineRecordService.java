@@ -20,7 +20,7 @@ import java.util.List;
 public class RoutineRecordService {
 
     private final RoutineRecordRepository routineRecordRepository;
-    private final PetService petService;
+    private final PacienteAnimalService petService;
     private final RoutineRecordMapper routineRecordMapper;
 
     @Transactional(readOnly = true)

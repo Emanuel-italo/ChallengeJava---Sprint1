@@ -27,7 +27,7 @@ public class VaccineService {
 
     private final VaccineRepository vaccineRepository;
     private final AlertRepository alertRepository;
-    private final PetService petService;
+    private final PacienteAnimalService petService;
     private final VaccineMapper vaccineMapper;
 
     @Transactional(readOnly = true)
