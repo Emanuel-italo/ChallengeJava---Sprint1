@@ -8,11 +8,11 @@
 		<version>3.4.4</version>
 		<relativePath/>
 	</parent>
-	<groupId>br.com.petos</groupId>
-	<artifactId>petos-challenge</artifactId>
+	<groupId>br.com.clyvo</groupId>
+	<artifactId>clyvo-pet</artifactId>
 	<version>1.0.0</version>
-	<name>PetOS Challenge</name>
-	<description>Backend API REST para o sistema PetOS - plataforma de cuidado contínuo para pets</description>
+	<name>Clyvo Pet</name>
+	<description>API para o sistema Clyvo Pet</description>
 
 	<properties>
 		<java.version>17</java.version>
