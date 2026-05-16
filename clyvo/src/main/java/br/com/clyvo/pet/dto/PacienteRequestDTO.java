@@ -14,9 +14,9 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class PacienteRequestDTO {
 
-    @NotBlank(message = "Nome é obrigatório")
-    @Size(min = 2, max = 100, message = "Nome deve ter entre 2 e 100 caracteres")
-    private String name;
+    @NotBlank(message = "O apelido do paciente é obrigatório")
+    @Size(min = 2, max = 100, message = "O apelido deve ter entre 2 e 100 caracteres")
+    private String apelido;
 
     @NotNull(message = "Espécie é obrigatória")
     private CategoriaEspecie species;
