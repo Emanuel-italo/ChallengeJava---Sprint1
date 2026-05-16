@@ -30,3 +30,27 @@ public class RegistroImunologicoController {
         return ResponseEntity.ok(registroService.buscarTodos());
     }
 }
+
+@GetMapping("/{id}")
+@Operation(summary = "Buscar registro de imunização por ID")
+public ResponseEntity<RegistroImunologicoResponseDTO> buscarPorId(@PathVariable Long id) {
+    return ResponseEntity.ok(registroService.buscarPorId(id));
+}
+
+@GetMapping("/paciente/{pacienteId}")
+@Operation(summary = "Listar imunizações de um paciente específico")
+public ResponseEntity<List<RegistroImunologicoResponseDTO>> buscarPorPacienteId(@PathVariable Long pacienteId) {
+    return ResponseEntity.ok(registroService.buscarPorPacienteId(pacienteId));
+}
+
+@PostMapping
+@Operation(summary = "Registrar nova aplicação de vacina")
+public ResponseEntity<RegistroImunologicoResponseDTO> registrar(@Valid @RequestBody RegistroImunologicoRequestDTO dto) {
+    return ResponseEntity.status(HttpStatus.CREATED).body(registroService.registrar(dto));
+}
+
+@PutMapping("/{id}")
+@Operation(summary = "Atualizar registro de imunização existente")
+public ResponseEntity<RegistroImunologicoResponseDTO> atualizar(@PathVariable Long id, @Valid @RequestBody RegistroImunologicoRequestDTO dto) {
+    return ResponseEntity.ok(registroService.atualizar(id, dto));
+}
