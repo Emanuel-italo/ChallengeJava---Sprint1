@@ -34,7 +34,7 @@ public class PacienteRequestDTO {
     @Size(max = 100, message = "O nome do responsável deve ter no máximo 100 caracteres")
     private String responsavelLegal;
 
-    @Size(max = 20, message = "Telefone deve ter no máximo 20 caracteres")
-    private String tutorPhone;
+    @Size(max = 20, message = "O telefone de contato deve ter no máximo 20 caracteres")
+    private String telefoneContato;
 }
 
