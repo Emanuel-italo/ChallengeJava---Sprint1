@@ -27,3 +27,8 @@ public class AtividadeDiariaService {
                 .map(this::converterParaResponseDTO)
                 .collect(Collectors.toList());
     }
+
+    public AtividadeDiariaResponseDTO buscarPorId(Long id) {
+        AtividadeDiaria atividade = atividadeDao.buscarPorId(id);
+        return converterParaResponseDTO(atividade);
+    }
