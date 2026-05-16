@@ -62,7 +62,7 @@ public class PacienteAnimalService {
                 .collect(Collectors.toList());
     }
 
-    public PacienteHistoricoDTO obtenerHistoricoLongitudinal(Long id) {
+    public PacienteHistoricoDTO obterHistoricoLongitudinal(Long id) {
         PacienteAnimal paciente = pacienteDao.buscarPorId(id);
 
         // Converte sub-listas de históricos clínicos de forma segura
