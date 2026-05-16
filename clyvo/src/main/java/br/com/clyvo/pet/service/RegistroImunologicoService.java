@@ -66,4 +66,21 @@ public class RegistroImunologicoService {
 
         return converterParaResponseDTO(registroDao.atualizar(registro));
     }
+    public void remover(Long id) {
+        registroDao.remover(id);
+    }
+
+    private RegistroImunologicoResponseDTO converterParaResponseDTO(RegistroImunologico registro) {
+        return RegistroImunologicoResponseDTO.builder()
+                .id(registro.getIdRegistro())
+                .pacienteId(registro.getPaciente().getIdPaciente())
+                .nomePaciente(registro.getPaciente().getApelido())
+                .nomeVacina(registro.getNomeVacina())
+                .lote(registro.getLote())
+                .dataAplicacao(registro.getDataAplicacao())
+                .dataVencimento(registro.getDataVencimento())
+                .status(registro.getStatus())
+                .build();
+    }
 }
+
