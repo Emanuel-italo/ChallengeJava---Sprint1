@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class PacienteResponseDTO {
 
-    private Long id;
+    private Long idPaciente;
     private String name;
     private CategoriaEspecie species;
     private String breed;
