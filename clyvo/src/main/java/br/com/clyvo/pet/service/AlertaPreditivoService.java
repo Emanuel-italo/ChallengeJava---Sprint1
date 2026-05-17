@@ -8,7 +8,7 @@ import br.com.clyvo.pet.repository.AlertaPreditivoDao;
 import br.com.clyvo.pet.repository.PacienteAnimalDao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import br.com.clyvo.pet.exception.EntidadeNaoLocalizadaException;
+
 
 import java.time.LocalDateTime;
 import java.util.List;
