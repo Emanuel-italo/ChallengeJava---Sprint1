@@ -1,6 +1,5 @@
 package br.com.clyvo.pet.service;
 
-
 import br.com.clyvo.pet.dto.RegistroImunologicoRequestDTO;
 import br.com.clyvo.pet.dto.RegistroImunologicoResponseDTO;
 import br.com.clyvo.pet.entity.PacienteAnimal;
@@ -66,6 +65,7 @@ public class RegistroImunologicoService {
 
         return converterParaResponseDTO(registroDao.atualizar(registro));
     }
+
     public void remover(Long id) {
         registroDao.remover(id);
     }
@@ -83,4 +83,3 @@ public class RegistroImunologicoService {
                 .build();
     }
 }
-

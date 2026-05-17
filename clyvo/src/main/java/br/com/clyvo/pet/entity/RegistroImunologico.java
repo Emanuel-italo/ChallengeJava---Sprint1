@@ -1,3 +1,5 @@
+package br.com.clyvo.pet.entity;
+
 import br.com.clyvo.pet.core.annotations.ChavePrimaria;
 import br.com.clyvo.pet.core.annotations.ColunaMapeada;
 import br.com.clyvo.pet.core.annotations.TabelaMapeada;
