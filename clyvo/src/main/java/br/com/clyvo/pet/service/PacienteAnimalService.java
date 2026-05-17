@@ -6,13 +6,11 @@ import br.com.clyvo.pet.dto.PacienteResponseDTO;
 import br.com.clyvo.pet.dto.AlertaPreditivoResponseDTO;
 import br.com.clyvo.pet.entity.PacienteAnimal;
 import br.com.clyvo.pet.enums.CategoriaEspecie;
-
 import br.com.clyvo.pet.repository.PacienteAnimalDao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
