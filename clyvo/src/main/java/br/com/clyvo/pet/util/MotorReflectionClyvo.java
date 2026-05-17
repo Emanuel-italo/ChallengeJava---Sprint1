@@ -14,7 +14,7 @@ public class MotorReflectionClyvo {
     public static void analisarEImprimirEstrutura(Object entidade) {
         Class<?> classe = entidade.getClass();
 
-      
+
         if (!classe.isAnnotationPresent(TabelaMapeada.class)) {
             System.out.println("Aviso: A classe " + classe.getSimpleName() + " não possui a anotação @TabelaMapeada.");
             return;
