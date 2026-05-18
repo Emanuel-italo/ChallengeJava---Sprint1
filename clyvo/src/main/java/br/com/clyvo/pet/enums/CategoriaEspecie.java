@@ -1,13 +1,12 @@
 package br.com.clyvo.pet.enums;
 
 public enum CategoriaEspecie {
-    DOG,
-    CAT,
-    BIRD,
-    RABBIT,
+    CACHORRO,
+    GATO,
+    PASSARO,
+    PEIXE,
     HAMSTER,
-    FISH,
-    REPTILE,
-    OTHER
+    COELHO,
+    REPTIL,
+    OUTRO
 }
-

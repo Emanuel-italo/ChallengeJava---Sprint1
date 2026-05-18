@@ -22,7 +22,7 @@ public class ProjectApplication implements CommandLineRunner {
 		PacienteAnimal pacienteDemonstracao = PacienteAnimal.builder()
 				.idPaciente(999L)
 				.apelido("Rex Reflection")
-				.especie(CategoriaEspecie.DOG)
+				.especie(CategoriaEspecie.CACHORRO)
 				.raca("Pastor Alemão")
 				.responsavelLegal("Professor FIAP")
 				.peso(35.0)
