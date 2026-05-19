@@ -22,7 +22,8 @@ public class AlertaPreditivo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_alerta")
-    @SequenceGenerator(name = "seq_alerta", sequenceName = "SEQ_ALERTA_PREDITIVO", allocationSize = 1)
+    // ATENÇÃO AQUI: Adicionado initialValue = 10
+    @SequenceGenerator(name = "seq_alerta", sequenceName = "SEQ_ALERTA_PREDITIVO", allocationSize = 1, initialValue = 10)
     @ChavePrimaria
     @ColunaMapeada(nome = "ID_ALERTA")
     @Column(name = "ID_ALERTA")
