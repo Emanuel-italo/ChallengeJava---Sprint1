@@ -24,7 +24,8 @@ public class PacienteAnimal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_paciente")
-    @SequenceGenerator(name = "seq_paciente", sequenceName = "SEQ_PACIENTE_ANIMAL", allocationSize = 1)
+    // ATENÇÃO AQUI: Adicionado initialValue = 10
+    @SequenceGenerator(name = "seq_paciente", sequenceName = "SEQ_PACIENTE_ANIMAL", allocationSize = 1, initialValue = 10)
     @ChavePrimaria
     @ColunaMapeada(nome = "ID_PACIENTE")
     @Column(name = "ID_PACIENTE")
