@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class AlertaPreditivoService {
 
-    // Utilizando as classes DAO manuais (JPA raiz) ao invés do Spring Data
+
     private final AlertaPreditivoDao alertaDao;
     private final PacienteAnimalDao pacienteDao;
 
@@ -35,7 +35,6 @@ public class AlertaPreditivoService {
     }
 
     public List<AlertaPreditivoResponseDTO> buscarPorPacienteId(Long pacienteId) {
-        // Valida se o paciente existe antes de buscar os alertas
         pacienteDao.buscarPorId(pacienteId);
         return alertaDao.buscarPorPaciente(pacienteId)
                 .stream()
@@ -97,7 +96,6 @@ public class AlertaPreditivoService {
         alertaDao.remover(id);
     }
 
-    // Método auxiliar privado para montar o DTO (substitui o antigo AlertMapper)
     private AlertaPreditivoResponseDTO converterParaResponseDTO(AlertaPreditivo alerta) {
         return AlertaPreditivoResponseDTO.builder()
                 .id(alerta.getIdRegistro())

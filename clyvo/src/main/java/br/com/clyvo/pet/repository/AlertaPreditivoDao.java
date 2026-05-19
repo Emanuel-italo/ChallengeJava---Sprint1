@@ -1,5 +1,4 @@
 package br.com.clyvo.pet.repository;
-
 import br.com.clyvo.pet.entity.AlertaPreditivo;
 import br.com.clyvo.pet.exception.EntidadeNaoLocalizadaException;
 import jakarta.persistence.EntityManager;

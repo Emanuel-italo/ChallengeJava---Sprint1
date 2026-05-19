@@ -18,7 +18,7 @@ public class ProjectApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// Criamos um objeto fictício apenas para provar o uso do Reflection
+
 		PacienteAnimal pacienteDemonstracao = PacienteAnimal.builder()
 				.idPaciente(999L)
 				.apelido("Rex Reflection")

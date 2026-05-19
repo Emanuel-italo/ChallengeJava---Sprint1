@@ -22,7 +22,7 @@ public class AlertaPreditivo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_alerta")
-    // ATENÇÃO AQUI: Adicionado initialValue = 10
+
     @SequenceGenerator(name = "seq_alerta", sequenceName = "SEQ_ALERTA_PREDITIVO", allocationSize = 1, initialValue = 10)
     @ChavePrimaria
     @ColunaMapeada(nome = "ID_ALERTA")
@@ -52,12 +52,10 @@ public class AlertaPreditivo {
     @Builder.Default
     private Boolean enviado = false;
 
-    // updatable = false garante que a data de criação nunca será alterada num UPDATE
     @Column(name = "CRIADO_EM", nullable = false, updatable = false)
     @ColunaMapeada(nome = "CRIADO_EM")
     private LocalDateTime dataCriacao;
 
-    // Uso de Callback JPA para gerenciar o estado ANTES de persistir
     @PrePersist
     public void antesDeSalvar() {
         if (this.dataCriacao == null) {

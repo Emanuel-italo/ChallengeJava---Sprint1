@@ -8,5 +8,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface ChavePrimaria {
-    // Esta não precisa de parâmetros, serve apenas como uma "etiqueta" ou marcador
+
 }

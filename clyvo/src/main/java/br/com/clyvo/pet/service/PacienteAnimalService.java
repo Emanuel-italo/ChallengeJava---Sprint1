@@ -63,7 +63,7 @@ public class PacienteAnimalService {
     public PacienteHistoricoDTO obterHistoricoLongitudinal(Long id) {
         PacienteAnimal paciente = pacienteDao.buscarPorId(id);
 
-        // Converte sub-listas de históricos clínicos de forma segura
+
         List<AlertaPreditivoResponseDTO> alertasDTO = paciente.getAlertasPreditivos().stream()
                 .map(alerta -> AlertaPreditivoResponseDTO.builder()
                         .id(alerta.getIdRegistro())
@@ -127,7 +127,7 @@ public class PacienteAnimalService {
         pacienteDao.atualizar(paciente); // Soft delete via atualização de estado
     }
 
-    // Método privado auxiliar para realizar a conversão de dados e calcular idade em meses
+
     private PacienteResponseDTO converterParaResponseDTO(PacienteAnimal paciente) {
         Integer idadeEmMeses = null;
         if (paciente.getDataNascimento() != null) {

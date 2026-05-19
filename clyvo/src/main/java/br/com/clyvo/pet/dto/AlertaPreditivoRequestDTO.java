@@ -20,7 +20,6 @@ public class AlertaPreditivoRequestDTO {
     @NotNull(message = "O identificador do paciente é obrigatório")
     private Long pacienteId;
 
-    // Correção: mudado de 'type' para 'tipo'
     @NotNull(message = "O tipo de alerta preditivo é obrigatório")
     private TipoAlertaPreditivo tipo;
 

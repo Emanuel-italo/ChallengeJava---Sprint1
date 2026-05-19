@@ -21,7 +21,6 @@ public class AtividadeDiaria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_atividade")
-    // ATENÇÃO AQUI: Adicionado initialValue = 10
     @SequenceGenerator(name = "seq_atividade", sequenceName = "SEQ_ATIVIDADE_DIARIA", allocationSize = 1, initialValue = 10)
     @ChavePrimaria
     @ColunaMapeada(nome = "ID_ATIVIDADE")

@@ -24,7 +24,6 @@ public class PacienteAnimal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_paciente")
-    // ATENÇÃO AQUI: Adicionado initialValue = 10
     @SequenceGenerator(name = "seq_paciente", sequenceName = "SEQ_PACIENTE_ANIMAL", allocationSize = 1, initialValue = 10)
     @ChavePrimaria
     @ColunaMapeada(nome = "ID_PACIENTE")
@@ -75,7 +74,6 @@ public class PacienteAnimal {
     @ColunaMapeada(nome = "ULTIMA_ATUALIZACAO")
     private LocalDateTime ultimaAtualizacao;
 
-    // Relacionamentos ajustados para os novos domínios
     @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private List<RegistroImunologico> imunizacoes = new ArrayList<>();
@@ -88,7 +86,6 @@ public class PacienteAnimal {
     @Builder.Default
     private List<AlertaPreditivo> alertasPreditivos = new ArrayList<>();
 
-    // Callback JPA exigido nos requisitos
     @PreUpdate
     public void antesDeAtualizar() {
         this.ultimaAtualizacao = LocalDateTime.now();
