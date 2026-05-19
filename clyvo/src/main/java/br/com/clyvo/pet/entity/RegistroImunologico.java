@@ -21,7 +21,8 @@ public class RegistroImunologico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_imunizacao")
-    @SequenceGenerator(name = "seq_imunizacao", sequenceName = "SEQ_REGISTRO_IMUNOLOGICO", allocationSize = 1)
+    // ATENÇÃO AQUI: Adicionado initialValue = 10
+    @SequenceGenerator(name = "seq_imunizacao", sequenceName = "SEQ_REGISTRO_IMUNOLOGICO", allocationSize = 1, initialValue = 10)
     @ChavePrimaria
     @ColunaMapeada(nome = "ID_IMUNIZACAO")
     @Column(name = "ID_IMUNIZACAO")
