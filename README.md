@@ -1,6 +1,7 @@
-```Java
 
-readme_content = """# 🐾 Clyvo Vet — Sistema Preditivo Longitudinal para Medicina Veterinária
+
+```markdown
+# 🐾 Clyvo Vet — Sistema Preditivo Longitudinal para Medicina Veterinária
 
  **Clyvo Vet** é um ecossistema inteligente voltado para o acompanhamento clínico longitudinal e engajamento contínuo na jornada de saúde do paciente animal. Desenvolvido para o **Challenge 2026 (1º Semestre - FIAP)**, este ecossistema adota práticas rigorosas de persistência manual nativa, tratamento semântico de exceções e metaprogramação estruturada baseada na Reflection API.
 
@@ -14,8 +15,8 @@ readme_content = """# 🐾 Clyvo Vet — Sistema Preditivo Longitudinal para Med
 - [Configuração e Execução](#-configuração-e-execução)
 - [Catálogo Completo de Endpoints (API REST)](#-catálogo-completo-de-endpoints-api-rest)
 - [Regras de Negócio e Ciclo de Vida](#-regras-de-negócio-e-ciclo-de-vida)
-- [Metaprogramação & Demonstração do Motor de Reflection]
-- (#-metaprogramação--demonstração-do-motor-de-reflection)
+- [Metaprogramação & Demonstração do Motor de Reflection](#-metaprogramação--demonstração-do-motor-de-reflection)
+- [Cronograma de Desenvolvimento (Sprint 1)](#-cronograma-de-desenvolvimento-sprint-1)
 - [Equipe e Autores (FIAP)](#-equipe-e-autores-fiap)
 
 ---
@@ -47,14 +48,7 @@ O projeto foi construído afastando-se de abstrações genéricas ou automatizad
 
 O código está organizado seguindo padrões rígidos de alta coesão e baixo acoplamento:
 
-
-```
-
 ```text
-README.md saved successfully!
-
-
-```
 br.com.clyvo.pet/
 ├── ProjectApplication.java       → Classe principal e gatilho do CommandLineRunner
 ├── config/                       → Configurações globais (Mecanismo de Cache e OpenAPI Swagger)
@@ -95,9 +89,9 @@ br.com.clyvo.pet/
 │   ├── InconsistenciaRegraClyvoException.java
 │   └── GlobalExceptionHandler.java
 └── core/                         → Infraestrutura Avançada de Metaprogramação
-├── annotations/              → Metadados customizados (@TabelaMapeada, @ColunaMapeada, @ChavePrimaria)
-└── util/                     → Motor Core de Reflection analítico
-└── MotorReflectionClyvo.java
+    ├── annotations/              → Metadados customizados (@TabelaMapeada, @ColunaMapeada, @ChavePrimaria)
+    └── util/                     → Motor Core de Reflection analítico
+        └── MotorReflectionClyvo.java
 
 ```
 
@@ -106,14 +100,14 @@ br.com.clyvo.pet/
 ## 🚀 Tecnologias e Dependências
 
 | Componente | Versão | Função Estratégica |
-|:---|:---|:---|
+| --- | --- | --- |
 | **Java** | 25 | Uso de recursos modernos da linguagem e LTS de última geração. |
 | **Spring Boot** | 3.4.4 | Kernel do ecossistema, injeção de dependências e inversão de controle. |
 | **Spring Web** | 3.4.4 | Exposição de endpoints REST corporativos de alta escalabilidade. |
 | **Spring Cache** | 3.4.4 | Otimização drástica de performance de leitura de prontuários médicos. |
-| **Hibernate Core** | 6.6.11.Final| Mecanismo de ORM subjacente controlado pelos DAOs. |
+| **Hibernate Core** | 6.6.11.Final | Mecanismo de ORM subjacente controlado pelos DAOs. |
 | **H2 Database** | 2.3.232 | Banco relacional rápido em memória para testes de desenvolvimento. |
-| **Jakarta Validation**| 3.0.2 | Validação sintática rigorosa na borda da aplicação (`@Past`, `@NotBlank`). |
+| **Jakarta Validation** | 3.0.2 | Validação sintática rigorosa na borda da aplicação (`@Past`, `@NotBlank`). |
 | **SpringDoc OpenAPI** | 2.8.6 | Geração automática da documentação Swagger interativa. |
 | **Lombok** | 1.18.38 | Eliminação de código boilerplate através de anotações em compilação. |
 
@@ -122,6 +116,7 @@ br.com.clyvo.pet/
 ## ▶️ Configuração e Execução
 
 ### Pré-requisitos
+
 * **Java JDK 25** configurado corretamente nas variáveis de ambiente (`JAVA_HOME`).
 * **Apache Maven 3.x** instalado (ou uso do Maven Wrapper).
 
@@ -148,14 +143,14 @@ A aplicação subirá com sucesso e estará ouvindo requisições HTTP na porta 
 
 Com o sistema operacional, acesse a interface interativa do Swagger para realizar chamadas reais contra os controladores:
 
-* **Swagger UI:** [http://localhost:8080/swagger-ui.html](https://www.google.com/search?q=http://localhost:8080/swagger-ui.html)
-* **API Docs (JSON):** [http://localhost:8080/api-docs](https://www.google.com/search?q=http://localhost:8080/api-docs)
+* **Swagger UI:** http://localhost:8080/swagger-ui.html
+* **API Docs (JSON):** http://localhost:8080/api-docs
 
 ### 🗄️ Console do Banco de Dados (H2 Console)
 
 O banco de dados relacional em memória expõe um console visual para checagem de tabelas e execução de queries SQL:
 
-* **URL de Acesso:** [http://localhost:8080/h2-console](https://www.google.com/search?q=http://localhost:8080/h2-console)
+* **URL de Acesso:** http://localhost:8080/h2-console
 * **JDBC URL:** `jdbc:h2:mem:petosdb`
 * **Usuário Credenciado:** `RM561337`
 * **Senha:** *(Deixar em branco)*
@@ -251,14 +246,33 @@ Mapeamento de Colunas:
 
 ---
 
+## 📅 Cronograma de Desenvolvimento (Sprint 1) OBs.: O conograma do projeto, tivemos varias partes, em todas elas decidimos que ficaria acoplado no reposito do Emanuel, todo o desenvolvimento e ele ficaria responsavel pelos commits e as arquiteturas.
+
+O planejamento e a execução das tarefas respeitaram o cronograma ágil estabelecido para as entregas da primeira fase do Challenge. As atividades foram divididas estrategicamente entre os engenheiros da equipe.
+
+| Atividade Realizada | Responsável(is) | Período de Execução | Status |
+| --- | --- | --- | --- |
+| Modelagem do Banco de Dados (DER) e Diagramação UML | Paulo e Gabriel | 20/03 a 28/03/2026 | ✅ Concluído |
+| Arquitetura Base, Setup do Spring Boot e Dependências | Emanuel | 29/03 a 02/04/2026 | ✅ Concluído |
+| Mapeamento JPA das Entidades e Criação dos Enums | Paulo | 03/04 a 10/04/2026 | ✅ Concluído |
+| Construção da Camada DAO (EntityManager manual) | Emanuel e Gabriel | 11/04 a 22/04/2026 | ✅ Concluído |
+| Lógica de Negócios (Services) e Segregação por DTOs | Equipe Completa | 23/04 a 05/05/2026 | ✅ Concluído |
+| Exposição dos Endpoints REST e Configuração Swagger | Gabriel e Paulo | 06/05 a 12/05/2026 | ✅ Concluído |
+| Criação do Motor Reflection API e Exception Handler | Emanuel | 13/05 a 16/05/2026 | ✅ Concluído |
+| Validação de Regras, Testes (Postman) e README Final | Equipe Completa | 17/05 a 22/05/2026 | ✅ Concluído |
+
+---
+
 ## 👨‍💻 Equipe e Autores (FIAP)
 
 O desenvolvimento deste ecossistema foi conduzido pelo time de engenharia de produto composto pelos seguintes integrantes:
 
-* **Emanuel Italo Leal Trindade Soares** (RM 561337) — *Software Engineer & Automation Architect*
-* **Paulo Henrique Alves Estalise** — *Collaborating Engineer & Product Analyst*
-* **Gabriel Bebe** — *Collaborating Engineer & Product Specialist*
+* **Emanuel Italo Leal Trindade Soares** (RM 561337)
+* **Paulo Henrique Alves Estalise** (RM 563811)
+* **Gabriel Bebe** (RM 562012)
 
 ---
 
 *Desenvolvido sob os preceitos de excelência técnica e rigor acadêmico para a disciplina de Java Advanced da FIAP — Termo de 2026.*
+
+```
