@@ -55,7 +55,6 @@ README.md saved successfully!
 
 
 ```
-
 br.com.clyvo.pet/
 ├── ProjectApplication.java       → Classe principal e gatilho do CommandLineRunner
 ├── config/                       → Configurações globais (Mecanismo de Cache e OpenAPI Swagger)
