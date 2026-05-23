@@ -1,0 +1,45 @@
+
+assim que buildar o projeto, copie e cole esse link abaixo no navegador para verificar o swagger:
+
+http://localhost:8080/swagger-ui/index.html#/
+
+
+===============================================================================
+
+teste endpoints POSTMAN dessa forma abaixo professor:
+
+===============================================================================
+Get colocar a URL não precisa do json no body ok ? localhost:8080/pacientes
+===============================================================================
+
+Post colocar essa URL : localhost:8080/pacientes + body em json seguindo esse padrão abaixo:
+
+{
+  "apelido": "Bolinha",
+  "especie": "CACHORRO",
+  "raca": "Pug",
+  "dataNascimento": "2023-05-10",
+  "peso": 8.5,
+  "responsavelLegal": "João Silva",
+  "telefoneContato": "(11) 91234-5678",
+  "prontuarioDetalhado": "Paciente apresenta boa saúde geral."
+}
+
+===============================================================================
+
+Put colocar essa URL : localhost:8080/pacientes/2 + body em json seguindo esse padrão abaixo:
+
+{
+  "apelido": "Bolinha",
+  "especie": "CACHORRO",
+  "raca": "Pug",
+  "dataNascimento": "2023-05-10",
+  "peso": 8.5,
+  "responsavelLegal": "João Silva",
+  "telefoneContato": "(11) 91234-5678",
+  "prontuarioDetalhado": "Paciente apresenta boa saúde geral."
+}
+
+===============================================================================
+
+Delete colocar a URL não precisa do json no body ok ? localhost:8080/pacientes/2
